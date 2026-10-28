@@ -2,6 +2,17 @@
 
 namespace App\Providers;
 
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Page;
+use App\Models\Product;
+use App\Models\ProductDocument;
+use App\Models\ProductImage;
+use App\Models\ProductSpecification;
+use App\Models\Setting;
+use App\Models\User;
+use App\Observers\PublicContentObserver;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Queue\Events\JobFailed;
@@ -32,6 +43,13 @@ class AppServiceProvider extends ServiceProvider
         }
 
         $this->configureRateLimiting();
+        $this->registerPublicContentObservers();
+
+        Event::listen(Login::class, function (Login $event) {
+            if ($event->user instanceof User) {
+                $event->user->forceFill(['last_login_at' => now()])->saveQuietly();
+            }
+        });
 
         // Make notification/mail failures observable without logging recipients or bodies.
         Event::listen(JobFailed::class, function (JobFailed $event) {
@@ -61,5 +79,13 @@ class AppServiceProvider extends ServiceProvider
                 Limit::perHour((int) config('techmate.rate_limits.submit_per_hour'))->by($key),
             ];
         });
+    }
+
+    /** Public API rows changed in the admin ping the frontend revalidation webhook (when configured). */
+    private function registerPublicContentObservers(): void
+    {
+        foreach ([Product::class, Category::class, Brand::class, Page::class, Setting::class, ProductImage::class, ProductSpecification::class, ProductDocument::class] as $model) {
+            $model::observe(PublicContentObserver::class);
+        }
     }
 }

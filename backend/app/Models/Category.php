@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\CleansUpFiles;
 use Database\Factories\CategoryFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,13 +14,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Category extends Model
 {
     /** @use HasFactory<CategoryFactory> */
-    use HasFactory, SoftDeletes;
+    use CleansUpFiles, HasFactory, SoftDeletes;
 
     /** @var list<string> */
     protected $fillable = [
         'parent_id', 'name', 'slug', 'description', 'image_path',
         'meta_title', 'meta_description', 'is_active', 'sort_order',
     ];
+
+    protected static function publicFileColumns(): array
+    {
+        return ['image_path'];
+    }
 
     protected static function booted(): void
     {

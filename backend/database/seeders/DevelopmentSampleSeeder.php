@@ -31,7 +31,7 @@ class DevelopmentSampleSeeder extends Seeder
             User::firstOrCreate(['email' => 'sample-admin@example.test'], [
                 'name' => 'Sample Admin',
                 'password' => bin2hex(random_bytes(16)),
-            ])->forceFill(['role' => User::ROLE_ADMIN, 'is_active' => true])->save();
+            ])->forceFill(['role' => User::ROLE_SUPER_ADMIN, 'is_active' => true])->save();
 
             $category = Category::firstOrCreate(['slug' => 'sample-category'], ['name' => 'Sample Category']);
             Category::firstOrCreate(['slug' => 'sample-subcategory'], [

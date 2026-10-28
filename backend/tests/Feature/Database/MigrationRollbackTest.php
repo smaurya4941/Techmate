@@ -38,7 +38,7 @@ class MigrationRollbackTest extends TestCase
                 $this->assertTrue(Schema::hasTable($table), "{$table} missing after migrate");
             }
 
-            $this->assertSame(0, Artisan::call('migrate:rollback', ['--step' => 16, '--force' => true]));
+            $this->assertSame(0, Artisan::call('migrate:rollback', ['--step' => 18, '--force' => true]));
 
             foreach (self::PHASE3_TABLES as $table) {
                 $this->assertFalse(Schema::hasTable($table), "{$table} still present after rollback");

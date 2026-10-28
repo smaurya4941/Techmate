@@ -197,3 +197,15 @@ curl "http://127.0.0.1:8000/api/v1/products?per_page=5"
 php artisan test                                         # SQLite in memory
 php artisan test --configuration=phpunit.mysql.xml       # MySQL, database techmate_test (disposable)
 ```
+
+## 5. Phase 5 additions: CMS content (public, read-only)
+
+Managed from the Filament admin panel (`docs/admin-panel.md`). Same envelopes, `public-read` rate limit, and publication rules as the catalogue: only published content is returned.
+
+| Method | Path | Notes |
+| --- | --- | --- |
+| GET | `/api/v1/pages?section=` | Published pages; `section` is one of `page`, `policy`, `faq`, `solution`, `service`. Items omit `content`. |
+| GET | `/api/v1/pages/{slug}` | One published page including sanitised HTML `content`. 404 for drafts, scheduled or deleted pages. |
+| GET | `/api/v1/settings` | `{ message, data: { key: value } }` for the declared, filled website settings (company, contact, social, footer, default SEO, homepage text/CTAs). |
+
+Page fields: `title`, `slug`, `section`, `excerpt`, `content` (detail only), `meta_title`, `meta_description`, `updated_at`. Status, authors and ids are never exposed.

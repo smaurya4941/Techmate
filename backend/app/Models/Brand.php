@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\CleansUpFiles;
 use Database\Factories\BrandFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,12 +13,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Brand extends Model
 {
     /** @use HasFactory<BrandFactory> */
-    use HasFactory, SoftDeletes;
+    use CleansUpFiles, HasFactory, SoftDeletes;
 
     /** @var list<string> */
     protected $fillable = [
         'name', 'slug', 'description', 'logo_path', 'website_url', 'is_active', 'sort_order',
     ];
+
+    protected static function publicFileColumns(): array
+    {
+        return ['logo_path'];
+    }
 
     protected static function booted(): void
     {

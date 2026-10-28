@@ -24,6 +24,9 @@ return Application::configure(basePath: dirname(__DIR__))
         }
 
         $middleware->api(prepend: [AssignRequestId::class]);
+
+        // There is no public /login route; staff sign in through the Filament panel.
+        $middleware->redirectGuestsTo(fn () => '/admin/login');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         ApiExceptionRenderer::register($exceptions);

@@ -19,9 +19,9 @@ class CatalogueSchemaTest extends DatabaseTestCase
     {
         $user = User::create(['name' => 'Staff', 'email' => 'staff@example.test', 'password' => 'secret-pass', 'role' => 'admin', 'is_active' => false])->fresh();
 
-        $this->assertSame('sales', $user->role);
+        $this->assertSame('sales_executive', $user->role);
         $this->assertTrue($user->is_active);
-        $this->assertFalse($user->isAdmin());
+        $this->assertFalse($user->isSuperAdmin());
         $this->assertNotSame('secret-pass', $user->password);
         $this->assertArrayNotHasKey('password', $user->toArray());
     }

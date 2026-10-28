@@ -98,6 +98,19 @@ API Health Check URL: `http://127.0.0.1:8000/api/health`
 
 ---
 
+### 3.x Admin panel (Phase 5)
+
+The Filament admin panel is served by the same Laravel app at `/admin`. It requires the PHP `intl` extension (uncomment `extension=intl` in `php.ini`), then:
+
+```powershell
+composer install
+php artisan migrate            # adds the 4-role model and pages.section (back up first)
+php artisan storage:link
+php artisan techmate:create-admin --name="Your Name" --email="you@company.com"
+```
+
+See `docs/admin-panel.md` for roles, workflows, uploads and cache behaviour.
+
 ## 4. Frontend Setup (Next.js App Router)
 
 1. In a new PowerShell window, navigate to the frontend directory:

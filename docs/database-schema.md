@@ -90,7 +90,9 @@ Column lists omit `id`, `created_at`, `updated_at` unless relevant. `UQ` = uniqu
 #### `users` (extended — existing Laravel auth preserved)
 Added columns: `phone varchar(30) null`, `role varchar(20) default 'sales'` (CHECK `admin|sales|editor`), `is_active boolean default 1`, `last_login_at timestamp null`. Existing `sessions`, `password_reset_tokens`, Sanctum tokens are untouched. `password` is hashed (cast) and `$hidden`; `role`, `is_active`, `last_login_at` are **not mass-assignable**. No public default grants access: the default role is the least-privileged staff role, and there are no public accounts. Soft deletes are deliberately not used; deactivate with `is_active = 0` (a reactivation needs the original row and history keeps its `user_id`).
 
-**Access control approach:** three coarse roles on `users.role` — `admin` (everything, incl. user/role management), `sales` (leads, activities, follow-ups, quotations), `editor` (catalogue, pages). Enforcement belongs in Laravel Gates/Policies in the API phase; no RBAC package was added.
+> **Superseded in Phase 5:** `users.role` now holds `super_admin|catalogue_manager|sales_executive|sales_manager` (varchar(30), default `sales_executive`, migration `2026_10_30_000001`). `pages` gained `section` (`page|policy|faq|solution|service`) and `sort_order` (migration `2026_10_30_000002`). See `docs/admin-panel.md`.
+
+**Access control approach (Phase 3 original):** three coarse roles on `users.role` — `admin` (everything, incl. user/role management), `sales` (leads, activities, follow-ups, quotations), `editor` (catalogue, pages). Enforcement belongs in Laravel Gates/Policies in the API phase; no RBAC package was added.
 
 #### `categories`
 `parent_id` (FK self, **RESTRICT**), `name 150`, `slug 160 UQ`, `description`, `image_path`, `meta_title 160`, `meta_description 320`, `is_active default 1`, `sort_order default 0`, `deleted_at`. IX `(parent_id, sort_order)`, IX `(is_active, sort_order)`.

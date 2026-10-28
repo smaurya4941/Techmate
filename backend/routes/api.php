@@ -6,8 +6,10 @@ use App\Http\Controllers\Api\V1\CategoryController;
 use App\Http\Controllers\Api\V1\CategoryProductController;
 use App\Http\Controllers\Api\V1\DistributorApplicationController;
 use App\Http\Controllers\Api\V1\EnquiryController;
+use App\Http\Controllers\Api\V1\PageController;
 use App\Http\Controllers\Api\V1\ProductController;
 use App\Http\Controllers\Api\V1\QuoteRequestController;
+use App\Http\Controllers\Api\V1\SettingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +41,9 @@ Route::prefix('v1')->name('api.v1.')->group(function () {
         Route::get('/brands', [BrandController::class, 'index'])->name('brands.index');
         Route::get('/products', [ProductController::class, 'index'])->name('products.index');
         Route::get('/products/{slug}', [ProductController::class, 'show'])->name('products.show');
+        Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
+        Route::get('/pages/{slug}', [PageController::class, 'show'])->name('pages.show');
+        Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     });
 
     Route::middleware('throttle:public-submissions')->group(function () {

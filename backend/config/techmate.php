@@ -28,6 +28,13 @@ return [
         'max_quantity' => 1000,
     ],
 
+    // Optional webhook that asks the Next.js frontend to drop cached public pages
+    // after admin changes. Leave empty to rely on the frontend's 60s revalidation.
+    'frontend' => [
+        'revalidate_url' => env('FRONTEND_REVALIDATE_URL'),
+        'revalidate_secret' => env('FRONTEND_REVALIDATE_SECRET'),
+    ],
+
     'notifications' => [
         'queue' => env('TECHMATE_NOTIFICATION_QUEUE', 'default'),
     ],

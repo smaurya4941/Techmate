@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\CleansUpFiles;
 use Database\Factories\ProductFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Product extends Model
 {
     /** @use HasFactory<ProductFactory> */
-    use HasFactory, SoftDeletes;
+    use CleansUpFiles, HasFactory, SoftDeletes;
 
     public const STATUS_DRAFT = 'draft';
 
@@ -46,6 +47,21 @@ class Product extends Model
             'sort_order' => 'integer',
             'published_at' => 'datetime',
         ];
+    }
+
+    protected static function publicFileColumns(): array
+    {
+        return ['primary_image_path'];
+    }
+
+    protected static function booted(): void
+    {
+        static::saving(function (Product $product) {
+            if ($userId = auth()->id()) {
+                $product->updated_by = $userId;
+                $product->created_by ??= $userId;
+            }
+        });
     }
 
     public function publish(): static

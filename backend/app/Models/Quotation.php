@@ -66,6 +66,12 @@ class Quotation extends Model
         ];
     }
 
+    /** @return list<string> */
+    public function nextStatuses(): array
+    {
+        return self::TRANSITIONS[$this->status] ?? [];
+    }
+
     public function canTransitionTo(string $status): bool
     {
         return in_array($status, self::TRANSITIONS[$this->status] ?? [], true);
