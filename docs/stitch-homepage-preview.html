@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Techmate Industries | Commercial Kitchen, Bakery &amp; Refrigeration Equipment</title>
+<!-- Google Fonts & Tailwind CDN -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- FontAwesome Icons for Industrial Grade UI -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              blue: '#174A83',
+              red: '#D62836',
+              navy: '#102B46',
+              grey: '#F3F6FA',
+              slate: '#344054',
+              border: '#E2E8F0',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    @keyframes marquee {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      display: flex;
+      width: 200%;
+      animation: marquee 28s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+    .glass-navy {
+      background: rgba(16, 43, 70, 0.85);
+      backdrop-filter: blur(12px);
+    }
+  </style>
+</head>
+<body class="bg-white text-brand-slate font-sans antialiased selection:bg-brand-red selection:text-white">
+<!-- ========================================================================= -->
+<!-- 1. TOP BAR & MAIN HEADER / NAVIGATION -->
+<!-- ========================================================================= -->
+<div class="bg-brand-navy text-gray-200 text-xs py-2.5 border-b border-white/10 hidden md:block">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+<div class="flex items-center space-x-6">
+<a class="flex items-center space-x-2 hover:text-brand-red transition-colors" href="tel:+918008324628">
+<i class="fa-solid fa-phone text-brand-red text-xs"></i>
+<span>+91 800-TECHMATE (832-4628)</span>
+</a>
+<a class="flex items-center space-x-2 hover:text-brand-red transition-colors" href="mailto:sales@techmateindustries.com">
+<i class="fa-solid fa-envelope text-brand-red text-xs"></i>
+<span>sales@techmateindustries.com</span>
+</a>
+<div class="flex items-center space-x-2 text-gray-400">
+<i class="fa-regular fa-clock text-xs"></i>
+<span>Mon - Sat: 8:30 AM - 7:00 PM IST</span>
+</div>
+</div>
+<div class="flex items-center space-x-5">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-brand-blue/40 text-blue-200 text-[11px] font-semibold border border-blue-400/30">
+<i class="fa-solid fa-certificate text-brand-red"></i> ISO 9001:2015 Certified
+        </span>
+<a class="hover:text-white transition-colors flex items-center gap-1 font-medium" href="#portal">
+<i class="fa-solid fa-lock text-[10px]"></i> Dealer &amp; OEM Portal
+        </a>
+<div class="flex items-center space-x-3 text-gray-300 pl-2 border-l border-white/20">
+<a class="hover:text-brand-red transition" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+<a class="hover:text-brand-red transition" href="#"><i class="fa-brands fa-youtube"></i></a>
+<a class="hover:text-brand-red transition" href="#"><i class="fa-brands fa-x-twitter"></i></a>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Navigation Header -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 transition-all">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Logo -->
+<a class="flex items-center gap-3 group" href="#">
+<div class="w-12 h-12 rounded-lg bg-brand-blue flex items-center justify-center shadow-md shadow-brand-blue/20 group-hover:scale-105 transition-transform">
+<span class="text-white font-heading font-black text-2xl tracking-tighter flex items-center">
+              T<span class="text-brand-red">M</span>
+</span>
+</div>
+<div>
+<div class="text-xl font-heading font-black text-brand-blue tracking-tight leading-none">
+              TECHMATE
+            </div>
+<div class="text-[10px] tracking-widest text-brand-red font-bold uppercase mt-1">
+              INDUSTRIES &amp; ENGINEERING
+            </div>
+</div>
+</a>
+<!-- Desktop Navigation Links -->
+<nav class="hidden lg:flex items-center space-x-7 font-medium text-sm text-gray-700">
+<a class="text-brand-blue font-bold flex items-center gap-1" href="#">Home</a>
+<a class="hover:text-brand-blue transition-colors" href="#about">About Us</a>
+<div class="relative group py-2">
+<button class="hover:text-brand-blue transition-colors flex items-center gap-1">
+              Equipment Categories <i class="fa-solid fa-chevron-down text-[10px] text-gray-400 group-hover:rotate-180 transition-transform"></i>
+</button>
+<div class="absolute top-full left-0 w-64 bg-white shadow-xl rounded-xl border border-gray-100 py-3 hidden group-hover:block animate-fade-in text-xs">
+<a class="block px-4 py-2 hover:bg-brand-grey hover:text-brand-blue font-semibold" href="#solutions">Cooking Ranges &amp; Combi Ovens</a>
+<a class="block px-4 py-2 hover:bg-brand-grey hover:text-brand-blue font-semibold" href="#solutions">Bakery &amp; Dough Processing</a>
+<a class="block px-4 py-2 hover:bg-brand-grey hover:text-brand-blue font-semibold" href="#solutions">Commercial Refrigeration</a>
+<a class="block px-4 py-2 hover:bg-brand-grey hover:text-brand-blue font-semibold" href="#solutions">Stainless Steel Custom Prep</a>
+<a class="block px-4 py-2 hover:bg-brand-grey hover:text-brand-blue font-semibold" href="#solutions">Commercial Warewashing</a>
+</div>
+</div>
+<a class="hover:text-brand-blue transition-colors" href="#turnkey-process">Turnkey Solutions</a>
+<a class="hover:text-brand-blue transition-colors" href="#projects">Projects</a>
+<a class="hover:text-brand-blue transition-colors" href="#blog">Technical Blog</a>
+<a class="hover:text-brand-blue transition-colors" href="#contact">Contact</a>
+</nav>
+<!-- Header Actions -->
+<div class="flex items-center space-x-4">
+<button class="w-10 h-10 rounded-full border border-gray-200 text-gray-600 hover:text-brand-blue hover:border-brand-blue flex items-center justify-center transition" title="Search Equipment Catalog">
+<i class="fa-solid fa-magnifying-glass text-sm"></i>
+</button>
+<a class="inline-flex items-center justify-center px-5 py-3 rounded-lg text-sm font-bold text-white bg-brand-red hover:bg-[#b81d29] shadow-md shadow-brand-red/30 transition transform hover:-translate-y-0.5 active:translate-y-0" href="#quote-form">
+<span>Request a Quote</span>
+<i class="fa-solid fa-arrow-right-long ml-2 text-xs"></i>
+</a>
+<button class="lg:hidden text-gray-700 text-2xl focus:outline-none p-1">
+<i class="fa-solid fa-bars"></i>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- ========================================================================= -->
+<!-- 2. HERO SECTION (SLIDER / MAIN HERO) -->
+<!-- ========================================================================= -->
+<section class="relative bg-brand-navy min-h-[640px] lg:min-h-[700px] flex items-center overflow-hidden">
+<!-- Visual background with realistic industrial kitchen imagery & overlay -->
+<div class="absolute inset-0 z-0">
+<img alt="Commercial Kitchen Stainless Steel Equipment" class="w-full h-full object-cover object-center opacity-30 mix-blend-luminosity scale-105 transform hover:scale-100 transition-transform duration-1000" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/90 to-brand-navy/60"></div>
+</div>
+<!-- Decorative Industrial Grid Lines -->
+<div class="absolute inset-0 bg-[radial-gradient(#174A83_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
+<div class="grid lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-8 text-white space-y-6">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-blue/40 border border-brand-blue text-xs font-bold uppercase tracking-wider text-blue-200">
+<span class="w-2 h-2 rounded-full bg-brand-red animate-pulse"></span>
+            COMMERCIAL FOOD SERVICE &amp; REFRIGERATION EQUIPMENT
+          </div>
+<h1 class="text-3xl sm:text-5xl lg:text-6xl font-heading font-black tracking-tight leading-[1.1] text-white">
+            Heavy-Duty Commercial Kitchen, Bakery &amp; Refrigeration Equipment
+          </h1>
+<p class="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl font-normal leading-relaxed">
+            Engineered for high-volume hotels, commercial bakeries, cloud kitchens, and institutional facilities. Built for 24/7 reliability with food-grade 304 stainless steel.
+          </p>
+<!-- Dual Action CTA -->
+<div class="pt-3 flex flex-wrap items-center gap-4 sm:gap-5">
+<a class="px-8 py-4 rounded-lg bg-brand-red hover:bg-[#bd202d] text-white font-bold text-base shadow-xl shadow-brand-red/30 transition transform hover:-translate-y-0.5 flex items-center gap-3" href="#quote-form">
+<span>Request a Quotation</span>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+<a class="px-8 py-4 rounded-lg bg-brand-blue/30 border-2 border-brand-blue hover:bg-brand-blue text-white font-bold text-base transition flex items-center gap-3" href="#catalog">
+<i class="fa-solid fa-file-arrow-down"></i>
+<span>Download 2025 Catalogue</span>
+</a>
+</div>
+<!-- Credential Badges -->
+<div class="pt-8 flex flex-wrap items-center gap-6 border-t border-white/15">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-brand-red">
+<i class="fa-solid fa-stamp text-lg"></i>
+</div>
+<div>
+<p class="text-xs text-gray-400">Quality Assured</p>
+<p class="text-sm font-bold text-white">ISO 9001:2015 Certified</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-blue-400">
+<i class="fa-solid fa-city text-lg"></i>
+</div>
+<div>
+<p class="text-xs text-gray-400">Proven Track Record</p>
+<p class="text-sm font-bold text-white">5,000+ Commercial Installations</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-amber-400">
+<i class="fa-solid fa-shield-halved text-lg"></i>
+</div>
+<div>
+<p class="text-xs text-gray-400">Factory Support</p>
+<p class="text-sm font-bold text-white">Pan-India 24/7 Field SLA</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Hero Feature Card Preview -->
+<div class="lg:col-span-4 hidden lg:block">
+<div class="rounded-2xl bg-white/10 backdrop-blur-md p-6 border border-white/20 shadow-2xl relative">
+<div class="absolute -top-3 -right-3 bg-brand-red text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+              FLAGSHIP MODEL
+            </div>
+<img alt="Industrial Combi Oven" class="w-full h-56 object-cover rounded-xl shadow-inner mb-5" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<h4 class="text-white font-heading font-bold text-lg">TM-Pro Series Touch Combi Oven</h4>
+<p class="text-xs text-gray-300 mt-1 mb-4">Dual boiler, automatic boiler flush, and precision ±0.5°C steam-injection algorithm.</p>
+<div class="flex items-center justify-between text-xs text-gray-200 border-t border-white/15 pt-3">
+<span class="flex items-center gap-1.5"><i class="fa-solid fa-bolt text-amber-400"></i> Up to 40% Energy Savings</span>
+<a class="text-blue-300 hover:text-white font-bold flex items-center gap-1" href="#solutions">Specs <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 3. KEY METRICS & CLIENT LOGO TICKER -->
+<!-- ========================================================================= -->
+<section class="bg-brand-grey border-b border-gray-200 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- 4 Counter Metric Blocks -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 pb-10 border-b border-gray-200/80">
+<div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200/60 flex items-center space-x-4">
+<div class="w-14 h-14 rounded-lg bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
+<i class="fa-solid fa-utensils text-2xl"></i>
+</div>
+<div>
+<div class="text-2xl sm:text-3xl font-heading font-extrabold text-brand-blue">2,500+</div>
+<div class="text-xs sm:text-sm font-medium text-brand-slate">Kitchens &amp; Bakeries Equipped</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200/60 flex items-center space-x-4">
+<div class="w-14 h-14 rounded-lg bg-red-50 text-brand-red flex items-center justify-center shrink-0">
+<i class="fa-solid fa-industry text-2xl"></i>
+</div>
+<div>
+<div class="text-2xl sm:text-3xl font-heading font-extrabold text-brand-blue">15+ Years</div>
+<div class="text-xs sm:text-sm font-medium text-brand-slate">Manufacturing Heritage</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200/60 flex items-center space-x-4">
+<div class="w-14 h-14 rounded-lg bg-blue-50 text-brand-blue flex items-center justify-center shrink-0">
+<i class="fa-solid fa-cubes-stacked text-2xl"></i>
+</div>
+<div>
+<div class="text-2xl sm:text-3xl font-heading font-extrabold text-brand-blue">450+</div>
+<div class="text-xs sm:text-sm font-medium text-brand-slate">Active Equipment Models</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200/60 flex items-center space-x-4">
+<div class="w-14 h-14 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+<i class="fa-solid fa-headset text-2xl"></i>
+</div>
+<div>
+<div class="text-2xl sm:text-3xl font-heading font-extrabold text-brand-blue">99.4%</div>
+<div class="text-xs sm:text-sm font-medium text-brand-slate">Satisfaction &amp; Uptime SLA</div>
+</div>
+</div>
+</div>
+<!-- Client & Partner Brand Marquee/Ticker -->
+<div class="pt-8">
+<p class="text-center text-xs font-bold uppercase tracking-wider text-gray-500 mb-6">
+          Equipping Leading Hospitality, QSR &amp; Food Processing Chains Pan-India
+        </p>
+<div class="flex flex-wrap items-center justify-between gap-8 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
+<div class="flex items-center space-x-2 font-heading font-black text-xl text-gray-800 tracking-wider">
+<i class="fa-solid fa-hotel text-brand-blue"></i>
+<span>MARRIOTT</span>
+</div>
+<div class="flex items-center space-x-2 font-heading font-black text-xl text-gray-800 tracking-wider">
+<i class="fa-solid fa-crown text-amber-600"></i>
+<span>GRAND HYATT</span>
+</div>
+<div class="flex items-center space-x-2 font-heading font-black text-xl text-gray-800 tracking-wider">
+<i class="fa-solid fa-pizza-slice text-brand-red"></i>
+<span>JUBILANT FOODWORKS</span>
+</div>
+<div class="flex items-center space-x-2 font-heading font-black text-xl text-gray-800 tracking-wider">
+<i class="fa-solid fa-bowl-food text-brand-blue"></i>
+<span>HALDIRAM'S</span>
+</div>
+<div class="flex items-center space-x-2 font-heading font-black text-xl text-gray-800 tracking-wider">
+<i class="fa-solid fa-kitchen-set text-brand-red"></i>
+<span>REBEL FOODS</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 4. EQUIPMENT CATEGORIES & SOLUTIONS (SERVICES GRID) -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-white" id="solutions">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+<div>
+<span class="text-xs font-bold text-brand-red uppercase tracking-widest block mb-2 font-heading">
+            OUR SOLUTIONS
+          </span>
+<h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-navy max-w-2xl leading-tight">
+            Specialized Equipment &amp; Engineering For Food Service Operations
+          </h2>
+</div>
+<a class="mt-4 md:mt-0 inline-flex items-center text-sm font-bold text-brand-blue hover:text-brand-red transition-colors gap-2" href="#quote-form">
+<span>See All 450+ Equipment Categories</span>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+<!-- 6 Pure White Cards Grid -->
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="bg-white rounded-2xl border border-gray-200/90 p-8 shadow-sm hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300 group flex flex-col justify-between">
+<div>
+<div class="w-16 h-16 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-2xl group-hover:bg-brand-blue group-hover:text-white transition-colors mb-6 shadow-sm">
+<i class="fa-solid fa-fire-burner"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
+              Commercial Cooking Ranges &amp; Combi Ovens
+            </h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-6">
+              Heavy-duty gas and electric cooking ranges, high-output pressure fryers, multi-deck convection ovens, and automated steam combi ovens.
+            </p>
+<ul class="text-xs text-gray-600 space-y-2 mb-6">
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> 304 Food-grade stainless steel top</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> High-efficiency European burners</li>
+</ul>
+</div>
+<a class="inline-flex items-center text-xs font-bold text-brand-blue group-hover:text-brand-red transition-colors gap-2" href="#quote-form">
+<span>Explore Cooking Range Specs</span>
+<i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="bg-white rounded-2xl border border-gray-200/90 p-8 shadow-sm hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300 group flex flex-col justify-between">
+<div>
+<div class="w-16 h-16 rounded-xl bg-red-50 text-brand-red flex items-center justify-center text-2xl group-hover:bg-brand-red group-hover:text-white transition-colors mb-6 shadow-sm">
+<i class="fa-solid fa-bread-slice"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
+              Bakery &amp; Dough Processing Machinery
+            </h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-6">
+              Industrial planetary mixers, high-capacity spiral kneaders, rotary rack ovens, automated bun dividers, and controlled fermentation proofers.
+            </p>
+<ul class="text-xs text-gray-600 space-y-2 mb-6">
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> Capacities from 20L to 300L batches</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> Dual speed timers &amp; safety guards</li>
+</ul>
+</div>
+<a class="inline-flex items-center text-xs font-bold text-brand-blue group-hover:text-brand-red transition-colors gap-2" href="#quote-form">
+<span>Explore Bakery Machinery</span>
+<i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="bg-white rounded-2xl border border-gray-200/90 p-8 shadow-sm hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300 group flex flex-col justify-between">
+<div>
+<div class="w-16 h-16 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-2xl group-hover:bg-brand-blue group-hover:text-white transition-colors mb-6 shadow-sm">
+<i class="fa-solid fa-snowflake"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
+              Commercial Refrigeration &amp; Cold Rooms
+            </h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-6">
+              Heavy-duty reach-in chillers, sub-zero blast freezers, undercounter prep chillers, and turnkey modular walk-in cold storage rooms.
+            </p>
+<ul class="text-xs text-gray-600 space-y-2 mb-6">
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> Tropicalized for +43°C ambient operation</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> Eco-friendly R290 &amp; R404a refrigerants</li>
+</ul>
+</div>
+<a class="inline-flex items-center text-xs font-bold text-brand-blue group-hover:text-brand-red transition-colors gap-2" href="#quote-form">
+<span>Explore Cooling Solutions</span>
+<i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+</a>
+</div>
+<!-- Card 4 -->
+<div class="bg-white rounded-2xl border border-gray-200/90 p-8 shadow-sm hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300 group flex flex-col justify-between">
+<div>
+<div class="w-16 h-16 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-2xl group-hover:bg-brand-blue group-hover:text-white transition-colors mb-6 shadow-sm">
+<i class="fa-solid fa-layer-group"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
+              Custom Stainless Steel Fabrication
+            </h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-6">
+              AISI 304 food-grade work prep tables, heavy-duty exhaust hoods with grease filters, deep-drawn sinks, bain-maries, and storage racks.
+            </p>
+<ul class="text-xs text-gray-600 space-y-2 mb-6">
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> 16/18 Gauge seamless argon welding</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> Custom millimeter-exact site sizing</li>
+</ul>
+</div>
+<a class="inline-flex items-center text-xs font-bold text-brand-blue group-hover:text-brand-red transition-colors gap-2" href="#quote-form">
+<span>Explore Custom Fabrication</span>
+<i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+</a>
+</div>
+<!-- Card 5 -->
+<div class="bg-white rounded-2xl border border-gray-200/90 p-8 shadow-sm hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300 group flex flex-col justify-between">
+<div>
+<div class="w-16 h-16 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-2xl group-hover:bg-brand-blue group-hover:text-white transition-colors mb-6 shadow-sm">
+<i class="fa-solid fa-pump-soap"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
+              Commercial Warewashing &amp; Sanitation
+            </h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-6">
+              High-throughput hood-type dishwashers, continuous flight-type conveyor systems, glass washers, and automated thermal sanitization units.
+            </p>
+<ul class="text-xs text-gray-600 space-y-2 mb-6">
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> Wash capacity: up to 1,800 plates/hour</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> Low water consumption per cycle</li>
+</ul>
+</div>
+<a class="inline-flex items-center text-xs font-bold text-brand-blue group-hover:text-brand-red transition-colors gap-2" href="#quote-form">
+<span>Explore Dishwashers</span>
+<i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+</a>
+</div>
+<!-- Card 6 -->
+<div class="bg-white rounded-2xl border border-gray-200/90 p-8 shadow-sm hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300 group flex flex-col justify-between">
+<div>
+<div class="w-16 h-16 rounded-xl bg-red-50 text-brand-red flex items-center justify-center text-2xl group-hover:bg-brand-red group-hover:text-white transition-colors mb-6 shadow-sm">
+<i class="fa-solid fa-compass-drafting"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
+              Turnkey Kitchen Planning &amp; MEP Design
+            </h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-6">
+              End-to-end commercial kitchen workflow layout, 3D BIM modeling, electrical and plumbing MEP schematic schematics, and HACCP compliance planning.
+            </p>
+<ul class="text-xs text-gray-600 space-y-2 mb-6">
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> Zero-bottleneck workflow ergonomics</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red"></i> Full compliance with local fire &amp; gas norms</li>
+</ul>
+</div>
+<a class="inline-flex items-center text-xs font-bold text-brand-blue group-hover:text-brand-red transition-colors gap-2" href="#quote-form">
+<span>Explore Turnkey Design</span>
+<i class="fa-solid fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 5. ABOUT TECHMATE & VIDEO DEMO SHOWCASE BANNER -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-brand-navy text-white relative overflow-hidden" id="about">
+<div class="absolute inset-0 bg-[radial-gradient(#174A83_1px,transparent_1px)] [background-size:20px_20px] opacity-15 pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid lg:grid-cols-12 gap-12 items-center">
+<!-- Content Column -->
+<div class="lg:col-span-6 space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-blue/30 border border-brand-blue text-xs font-bold text-blue-200">
+<i class="fa-solid fa-award text-brand-red"></i> 15+ YEARS OF MANUFACTURING EXCELLENCE
+          </div>
+<h2 class="text-3xl sm:text-4xl font-heading font-extrabold tracking-tight leading-tight">
+            Engineering Heavy-Duty Reliability for Non-Stop Kitchen Operations
+          </h2>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+            Techmate Industries operates a dedicated 65,000 sq.ft. modern manufacturing facility equipped with automated CNC fiber lasers, hydraulic press brakes, and robotic TIG welding cells.
+          </p>
+<p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+            Every machine is built strictly using heavy-gauge food-grade 304 stainless steel and tested through continuous 72-hour burn-in cycles before dispatch, guaranteeing fault-free performance under relentless commercial kitchen pressures.
+          </p>
+<!-- Highlights List -->
+<div class="grid sm:grid-cols-2 gap-4 pt-2">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded bg-brand-red/20 text-brand-red flex items-center justify-center shrink-0 mt-1">
+<i class="fa-solid fa-shield"></i>
+</div>
+<div>
+<h4 class="font-bold text-sm text-white">Full AISI 304 Alloy</h4>
+<p class="text-xs text-gray-400">Zero rust, high acid and heat resistance</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded bg-brand-blue/30 text-blue-400 flex items-center justify-center shrink-0 mt-1">
+<i class="fa-solid fa-compress"></i>
+</div>
+<div>
+<h4 class="font-bold text-sm text-white">European Compressors</h4>
+<p class="text-xs text-gray-400">Embraco / Danfoss tropicalized units</p>
+</div>
+</div>
+</div>
+<!-- Contact Phone Box -->
+<div class="bg-brand-navy/90 p-5 rounded-xl border border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-brand-red flex items-center justify-center text-white text-xl shrink-0">
+<i class="fa-solid fa-phone-volume"></i>
+</div>
+<div>
+<span class="text-xs text-gray-400 block font-medium">Speak to a Commercial Kitchen Engineer:</span>
+<span class="text-lg font-heading font-extrabold text-white">+91 800-TECHMATE</span>
+</div>
+</div>
+<a class="px-5 py-2.5 bg-brand-red hover:bg-[#ba1e2a] text-white text-xs font-bold rounded-lg transition whitespace-nowrap" href="#quote-form">
+              Schedule Site Visit
+            </a>
+</div>
+</div>
+<!-- Video Demo Showcase Container -->
+<div class="lg:col-span-6">
+<div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 group">
+<img alt="Techmate Manufacturing Plant CNC Machines" class="w-full h-[400px] object-cover group-hover:scale-105 transition-transform duration-700" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div class="absolute inset-0 bg-brand-navy/50 backdrop-blur-[2px] flex flex-col items-center justify-center p-6 text-center">
+<button class="w-20 h-20 rounded-full bg-brand-red text-white flex items-center justify-center text-2xl shadow-2xl shadow-brand-red/60 transform group-hover:scale-110 transition duration-300 animate-pulse">
+<i class="fa-solid fa-play ml-1"></i>
+</button>
+<h4 class="mt-6 text-xl font-heading font-bold text-white">Watch Factory Tour &amp; CNC Testing</h4>
+<p class="text-xs text-gray-200 mt-1 max-w-sm">Take an inside look at our 65,000 sq.ft. automated manufacturing and QA testing facility.</p>
+</div>
+<div class="absolute bottom-4 left-4 right-4 bg-brand-navy/90 backdrop-blur-md px-4 py-2.5 rounded-lg border border-white/10 flex justify-between items-center text-xs text-gray-300">
+<span class="font-medium"><i class="fa-solid fa-video text-brand-red mr-1.5"></i> Factory Tour: 3 min 45 sec</span>
+<span class="text-blue-300 font-bold">Full 4K Ultra HD</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 6. WHY CHOOSE TECHMATE / CORE ADVANTAGES -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-brand-grey">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="text-xs font-bold text-brand-red uppercase tracking-widest block mb-2 font-heading">
+          WHY CHOOSE TECHMATE
+        </span>
+<h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-navy leading-tight">
+          Engineered for Superior Hygiene, Thermal Efficiency &amp; Durability
+        </h2>
+<p class="text-sm sm:text-base text-brand-slate mt-4">
+          Every commercial product is built to reduce kitchen utility bills, eliminate breakdown downtime, and adhere strictly to global food safety benchmarks.
+        </p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Feature 1 -->
+<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition">
+<div class="w-14 h-14 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-2xl mb-6">
+<i class="fa-solid fa-cube"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3">Heavy-Gauge AISI 304 Stainless</h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-4">
+            Constructed with 1.2mm to 1.5mm high-grade stainless steel with anti-corrosion argon welds. Smooth sanitary coved corners prevent grease retention and pathogen growth.
+          </p>
+<div class="text-xs font-bold text-brand-blue flex items-center gap-1.5 pt-2">
+<i class="fa-solid fa-circle-check text-brand-red"></i> 100% Food-Grade Chemical Resistance
+          </div>
+</div>
+<!-- Feature 2 -->
+<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition">
+<div class="w-14 h-14 rounded-xl bg-red-50 text-brand-red flex items-center justify-center text-2xl mb-6">
+<i class="fa-solid fa-gauge-high"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3">European Compressors &amp; Burners</h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-4">
+            Precision high-heat cast iron burners and imported tropicalized refrigeration compressors deliver up to 35% reduction in gas and power consumption with digital thermostats.
+          </p>
+<div class="text-xs font-bold text-brand-blue flex items-center gap-1.5 pt-2">
+<i class="fa-solid fa-circle-check text-brand-red"></i> Verified 35% Energy Cost Savings
+          </div>
+</div>
+<!-- Feature 3 -->
+<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm hover:shadow-md transition">
+<div class="w-14 h-14 rounded-xl bg-blue-50 text-brand-blue flex items-center justify-center text-2xl mb-6">
+<i class="fa-solid fa-truck-fast"></i>
+</div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3">Pan-India Service &amp; Spare Network</h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-4">
+            Factory-trained field engineers situated across 32 metro and Tier-2 hubs with guaranteed original OEM spare availability within 24–48 hours to secure uninterrupted cooking.
+          </p>
+<div class="text-xs font-bold text-brand-blue flex items-center gap-1.5 pt-2">
+<i class="fa-solid fa-circle-check text-brand-red"></i> 4-Hour Emergency Response SLA
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 7. CASE STUDIES & COMMISSIONED PROJECTS CAROUSEL -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-white" id="projects">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+<div>
+<span class="text-xs font-bold text-brand-red uppercase tracking-widest block mb-2 font-heading">
+            CASE STUDIES
+          </span>
+<h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-navy max-w-2xl leading-tight">
+            Explore Our Turnkey Commercial Installations
+          </h2>
+</div>
+<div class="mt-4 md:mt-0 flex items-center space-x-3">
+<button class="w-10 h-10 rounded-lg border border-gray-300 text-gray-700 hover:bg-brand-blue hover:text-white hover:border-brand-blue transition flex items-center justify-center">
+<i class="fa-solid fa-arrow-left"></i>
+</button>
+<button class="w-10 h-10 rounded-lg border border-gray-300 text-gray-700 hover:bg-brand-blue hover:text-white hover:border-brand-blue transition flex items-center justify-center">
+<i class="fa-solid fa-arrow-right"></i>
+</button>
+</div>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Project 1 -->
+<div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition group">
+<div class="h-48 overflow-hidden relative">
+<img alt="Grand Hyatt Commercial Banquet Kitchen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<span class="absolute top-3 left-3 bg-brand-navy text-white text-[11px] font-bold px-2.5 py-1 rounded">
+              Hospitality
+            </span>
+</div>
+<div class="p-6">
+<h4 class="font-heading font-bold text-base text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
+              Grand Hyatt Hotel
+            </h4>
+<p class="text-xs text-brand-slate mb-4">
+              500-Cover Banquet &amp; Central Production Kitchen with automated combi steam units and heavy-duty ventilation canopy.
+            </p>
+<div class="text-[11px] font-bold text-brand-red flex items-center gap-1">
+<span>View Installation Details</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+</div>
+</div>
+</div>
+<!-- Project 2 -->
+<div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition group">
+<div class="h-48 overflow-hidden relative">
+<img alt="Industrial Bakery Line" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<span class="absolute top-3 left-3 bg-brand-navy text-white text-[11px] font-bold px-2.5 py-1 rounded">
+              Industrial Bakery
+            </span>
+</div>
+<div class="p-6">
+<h4 class="font-heading font-bold text-base text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
+              Bakehouse Industrial
+            </h4>
+<p class="text-xs text-brand-slate mb-4">
+              Automated 1,000 Loaf/Hour continuous rotary bread line with 250kg spiral mixers and double-rack proofing rooms.
+            </p>
+<div class="text-[11px] font-bold text-brand-red flex items-center gap-1">
+<span>View Installation Details</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+</div>
+</div>
+</div>
+<!-- Project 3 -->
+<div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition group">
+<div class="h-48 overflow-hidden relative">
+<img alt="Cloud Kitchen Setup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<span class="absolute top-3 left-3 bg-brand-navy text-white text-[11px] font-bold px-2.5 py-1 rounded">
+              QSR &amp; Cloud Kitchen
+            </span>
+</div>
+<div class="p-6">
+<h4 class="font-heading font-bold text-base text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
+              Rebel CloudKitchens
+            </h4>
+<p class="text-xs text-brand-slate mb-4">
+              20-Station modular high-speed cloud setup configured with custom stainless prep stations and high-recovery fryers.
+            </p>
+<div class="text-[11px] font-bold text-brand-red flex items-center gap-1">
+<span>View Installation Details</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+</div>
+</div>
+</div>
+<!-- Project 4 -->
+<div class="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm hover:shadow-lg transition group">
+<div class="h-48 overflow-hidden relative">
+<img alt="Hospitality Dietary Kitchen" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<span class="absolute top-3 left-3 bg-brand-navy text-white text-[11px] font-bold px-2.5 py-1 rounded">
+              Healthcare
+            </span>
+</div>
+<div class="p-6">
+<h4 class="font-heading font-bold text-base text-brand-navy mb-2 group-hover:text-brand-blue transition-colors">
+              Apollo Multi-Specialty Hospital
+            </h4>
+<p class="text-xs text-brand-slate mb-4">
+              Dietary hygienic meal prep facility and modular walk-in cold storage engineered for zero-contamination HACCP standards.
+            </p>
+<div class="text-[11px] font-bold text-brand-red flex items-center gap-1">
+<span>View Installation Details</span> <i class="fa-solid fa-chevron-right text-[9px]"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 8. CORPORATE STATEMENT & TEXT TICKER (MARQUEE) -->
+<!-- ========================================================================= -->
+<section class="bg-brand-blue text-white py-5 overflow-hidden border-y border-white/10 select-none">
+<div class="flex whitespace-nowrap animate-marquee text-sm sm:text-base font-heading font-bold tracking-widest uppercase">
+<span class="inline-flex items-center gap-8 px-4">
+<span>• ISO 9001:2015 CERTIFIED</span>
+<span class="text-brand-red">★</span>
+<span>HEAVY-DUTY COMMERCIAL EQUIPMENT</span>
+<span class="text-brand-red">★</span>
+<span>TURNKEY KITCHEN ENGINEERING</span>
+<span class="text-brand-red">★</span>
+<span>RAPID PAN-INDIA TECHNICAL SERVICE</span>
+<span class="text-brand-red">★</span>
+<span>FOOD-GRADE 304 STAINLESS STEEL FABRICATION</span>
+<span class="text-brand-red">★</span>
+</span>
+<span class="inline-flex items-center gap-8 px-4">
+<span>• ISO 9001:2015 CERTIFIED</span>
+<span class="text-brand-red">★</span>
+<span>HEAVY-DUTY COMMERCIAL EQUIPMENT</span>
+<span class="text-brand-red">★</span>
+<span>TURNKEY KITCHEN ENGINEERING</span>
+<span class="text-brand-red">★</span>
+<span>RAPID PAN-INDIA TECHNICAL SERVICE</span>
+<span class="text-brand-red">★</span>
+<span>FOOD-GRADE 304 STAINLESS STEEL FABRICATION</span>
+<span class="text-brand-red">★</span>
+</span>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 9. TURNKEY WORKING PROCESS (3 STEPS) -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-brand-grey" id="turnkey-process">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="text-xs font-bold text-brand-red uppercase tracking-widest block mb-2 font-heading">
+          WORK PROCESS
+        </span>
+<h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-navy leading-tight">
+          How Techmate Delivers Turnkey Kitchen Solutions
+        </h2>
+<p class="text-sm sm:text-base text-brand-slate mt-4">
+          From first architectural CAD consultations to commissioning and continuous AMC maintenance, we execute seamless kitchen rollouts.
+        </p>
+</div>
+<div class="grid md:grid-cols-3 gap-8 relative">
+<!-- Step 1 -->
+<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm relative group hover:border-brand-blue transition">
+<div class="w-14 h-14 rounded-2xl bg-brand-navy text-white font-heading font-black text-xl flex items-center justify-center mb-6 shadow-md shadow-brand-navy/20">
+            01
+          </div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3">Consultation &amp; Kitchen CAD Layout</h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-4">
+            Our engineers assess your menu output, expected covers per hour, and kitchen dimensions to formulate complete 2D/3D CAD layouts and MEP load specs.
+          </p>
+<ul class="text-xs text-gray-600 space-y-1.5 border-t border-gray-100 pt-4">
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-brand-blue text-[8px]"></i> Menu workflow &amp; ergonomics analysis</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-brand-blue text-[8px]"></i> Exhaust ventilation &amp; gas line sizing</li>
+</ul>
+</div>
+<!-- Step 2 -->
+<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm relative group hover:border-brand-blue transition">
+<div class="w-14 h-14 rounded-2xl bg-brand-blue text-white font-heading font-black text-xl flex items-center justify-center mb-6 shadow-md shadow-brand-blue/20">
+            02
+          </div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3">Custom Fabrication &amp; Factory QA</h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-4">
+            Components are precision cut with CNC lasers and bent with robotic presses. Every unit undergoes hydrostatic pressure checks and 72-hour thermal stress testing.
+          </p>
+<ul class="text-xs text-gray-600 space-y-1.5 border-t border-gray-100 pt-4">
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-brand-blue text-[8px]"></i> Seamless 304 laser fabrication</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-brand-blue text-[8px]"></i> Factory calibration certificates</li>
+</ul>
+</div>
+<!-- Step 3 -->
+<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm relative group hover:border-brand-blue transition">
+<div class="w-14 h-14 rounded-2xl bg-brand-red text-white font-heading font-black text-xl flex items-center justify-center mb-6 shadow-md shadow-brand-red/20">
+            03
+          </div>
+<h3 class="text-xl font-heading font-bold text-brand-navy mb-3">On-Site Commissioning &amp; Staff Training</h3>
+<p class="text-sm text-brand-slate leading-relaxed mb-4">
+            Factory technicians install, level, connect gas/electrical feeds, validate temperature controls, and conduct full operational training with kitchen staff.
+          </p>
+<ul class="text-xs text-gray-600 space-y-1.5 border-t border-gray-100 pt-4">
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-brand-blue text-[8px]"></i> Live test fire &amp; refrigeration pull-down</li>
+<li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-brand-blue text-[8px]"></i> Preventative maintenance manuals</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 10. CLIENT TESTIMONIALS CAROUSEL -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="text-xs font-bold text-brand-red uppercase tracking-widest block mb-2 font-heading">
+          TESTIMONIALS
+        </span>
+<h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-navy leading-tight">
+          Trusted by Executive Chefs, Bakeries &amp; Facility Directors
+        </h2>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-brand-grey rounded-2xl p-8 border border-gray-200 flex flex-col justify-between">
+<div>
+<div class="flex text-amber-400 text-sm mb-4 space-x-1">
+<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+</div>
+<p class="text-sm text-brand-slate italic mb-6 leading-relaxed">
+              "We run a high-pressure 500-cover banquet kitchen. The Techmate combi ovens and custom cooking ranges deliver pinpoint heat retention and zero downtime even on 16-hour continuous shifts."
+            </p>
+</div>
+<div class="flex items-center gap-4 border-t border-gray-200/80 pt-4">
+<img alt="Chef Rajesh Verma" class="w-12 h-12 rounded-full object-cover border-2 border-brand-blue" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div>
+<h5 class="text-sm font-heading font-bold text-brand-navy">Chef Rajesh Verma</h5>
+<p class="text-xs text-gray-500">Executive Chef, Luxury Hospitality Group</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-brand-grey rounded-2xl p-8 border border-gray-200 flex flex-col justify-between">
+<div>
+<div class="flex text-amber-400 text-sm mb-4 space-x-1">
+<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+</div>
+<p class="text-sm text-brand-slate italic mb-6 leading-relaxed">
+              "Techmate's 150kg spiral dough kneaders and automated rotary rack ovens doubled our artisanal bread throughput. The temperature consistency across baking decks is simply remarkable."
+            </p>
+</div>
+<div class="flex items-center gap-4 border-t border-gray-200/80 pt-4">
+<img alt="Ananya Singhania" class="w-12 h-12 rounded-full object-cover border-2 border-brand-red" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div>
+<h5 class="text-sm font-heading font-bold text-brand-navy">Ananya Singhania</h5>
+<p class="text-xs text-gray-500">Founder &amp; Head Baker, Crust &amp; Crumb Artisan Co.</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-brand-grey rounded-2xl p-8 border border-gray-200 flex flex-col justify-between">
+<div>
+<div class="flex text-amber-400 text-sm mb-4 space-x-1">
+<i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+</div>
+<p class="text-sm text-brand-slate italic mb-6 leading-relaxed">
+              "When standardizing 15 cloud kitchen sites in 60 days, Techmate fabricated millimeter-accurate stainless prep lines and modular cold rooms on time. Their after-sales SLA is genuine."
+            </p>
+</div>
+<div class="flex items-center gap-4 border-t border-gray-200/80 pt-4">
+<img alt="Vikram Malhotra" class="w-12 h-12 rounded-full object-cover border-2 border-brand-blue" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<div>
+<h5 class="text-sm font-heading font-bold text-brand-navy">Vikram Malhotra</h5>
+<p class="text-xs text-gray-500">VP of Engineering, Multi-Brand Cloud Kitchens</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 11. FEATURED TECHNICAL INSIGHTS & BLOGS -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-brand-grey" id="blog">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+<div>
+<span class="text-xs font-bold text-brand-red uppercase tracking-widest block mb-2 font-heading">
+            LATEST NEWS
+          </span>
+<h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-brand-navy max-w-2xl leading-tight">
+            Technical Insights &amp; Equipment Guides from Techmate
+          </h2>
+</div>
+<a class="mt-4 md:mt-0 inline-flex items-center text-sm font-bold text-brand-blue hover:text-brand-red transition-colors gap-2" href="#blog">
+<span>Read All Engineering Articles</span>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Blog 1 -->
+<article class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition group">
+<div class="h-52 overflow-hidden relative">
+<img alt="Commercial Blast Chiller Cold Room" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<span class="absolute top-3 left-3 bg-brand-navy text-white text-[11px] font-bold px-2.5 py-1 rounded">
+              Refrigeration
+            </span>
+</div>
+<div class="p-6">
+<div class="text-xs text-gray-400 mb-2 flex items-center gap-2">
+<i class="fa-regular fa-calendar"></i> October 14, 2024 • 6 min read
+            </div>
+<h3 class="font-heading font-bold text-lg text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
+              Sizing Commercial Blast Chillers &amp; Cold Rooms for High-Volume Kitchens
+            </h3>
+<p class="text-xs text-brand-slate leading-relaxed mb-4">
+              How to calculate pull-down BTU capacities, prevent food spoilage under strict HACCP rules, and optimize condenser airflow in high-ambient climates.
+            </p>
+<a class="text-xs font-bold text-brand-blue group-hover:text-brand-red flex items-center gap-1.5 transition-colors" href="#blog">
+<span>Read Full Engineering Guide</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+</a>
+</div>
+</article>
+<!-- Blog 2 -->
+<article class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition group">
+<div class="h-52 overflow-hidden relative">
+<img alt="Commercial Gas vs Induction Ranges" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<span class="absolute top-3 left-3 bg-brand-navy text-white text-[11px] font-bold px-2.5 py-1 rounded">
+              Thermal Efficiency
+            </span>
+</div>
+<div class="p-6">
+<div class="text-xs text-gray-400 mb-2 flex items-center gap-2">
+<i class="fa-regular fa-calendar"></i> September 28, 2024 • 5 min read
+            </div>
+<h3 class="font-heading font-bold text-lg text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
+              Energy Efficiency Breakdown: Commercial Gas vs Induction Cooking Ranges
+            </h3>
+<p class="text-xs text-brand-slate leading-relaxed mb-4">
+              A comprehensive ROI and thermal transmission comparison analyzing kitchen heat load, kitchen exhaust sizing, and utility bill savings over 5 years.
+            </p>
+<a class="text-xs font-bold text-brand-blue group-hover:text-brand-red flex items-center gap-1.5 transition-colors" href="#blog">
+<span>Read Full Engineering Guide</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+</a>
+</div>
+</article>
+<!-- Blog 3 -->
+<article class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition group">
+<div class="h-52 overflow-hidden relative">
+<img alt="Industrial Planetary Mixer Maintenance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"/>
+<span class="absolute top-3 left-3 bg-brand-navy text-white text-[11px] font-bold px-2.5 py-1 rounded">
+              Maintenance
+            </span>
+</div>
+<div class="p-6">
+<div class="text-xs text-gray-400 mb-2 flex items-center gap-2">
+<i class="fa-regular fa-calendar"></i> August 19, 2024 • 8 min read
+            </div>
+<h3 class="font-heading font-bold text-lg text-brand-navy mb-3 group-hover:text-brand-blue transition-colors">
+              Preventive Maintenance Guide for Industrial Planetary &amp; Spiral Mixers
+            </h3>
+<p class="text-xs text-brand-slate leading-relaxed mb-4">
+              Essential checklist for gear drive lubrication, bowl alignment, emergency stop brake tests, and extending the lifespan of high-torque bakery motors.
+            </p>
+<a class="text-xs font-bold text-brand-blue group-hover:text-brand-red flex items-center gap-1.5 transition-colors" href="#blog">
+<span>Read Full Engineering Guide</span> <i class="fa-solid fa-arrow-right text-[10px]"></i>
+</a>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 12. CONSULTATION & QUOTATION FORM WITH BUSINESS HOURS -->
+<!-- ========================================================================= -->
+<section class="py-24 bg-brand-grey" id="quote-form">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid lg:grid-cols-12 gap-10 items-stretch">
+<!-- Left Column: Deep Navy Information & Hours Card -->
+<div class="lg:col-span-5 bg-brand-navy text-white rounded-2xl p-8 sm:p-10 flex flex-col justify-between shadow-xl">
+<div>
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-blue/40 border border-brand-blue text-xs font-bold uppercase tracking-wider text-blue-200 mb-6">
+              DIRECT FACTORY DESK
+            </span>
+<h3 class="text-2xl sm:text-3xl font-heading font-extrabold mb-4 leading-tight">
+              Ready to Upgrade or Build Your Commercial Facility?
+            </h3>
+<p class="text-sm text-gray-300 leading-relaxed mb-8">
+              Speak with our senior kitchen planning engineers. We provide free site assessments, custom fabrication estimates, and complete 2D layout assistance.
+            </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-brand-red shrink-0 mt-0.5">
+<i class="fa-solid fa-phone"></i>
+</div>
+<div>
+<div class="text-xs text-gray-400">Toll-Free Factory Desk</div>
+<div class="text-base font-bold font-heading text-white">+91 800-TECHMATE</div>
+<div class="text-xs text-gray-300">+91 (022) 2854-9900</div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-blue-400 shrink-0 mt-0.5">
+<i class="fa-solid fa-location-dot"></i>
+</div>
+<div>
+<div class="text-xs text-gray-400">Manufacturing Works &amp; Showroom</div>
+<div class="text-xs text-gray-200 leading-snug">
+                    Plot 48–52, Industrial Tech Corridor, Phase IV, Navi Mumbai, MH 400710, India
+                  </div>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
+<i class="fa-regular fa-clock"></i>
+</div>
+<div>
+<div class="text-xs text-gray-400">Business &amp; Engineering Hours</div>
+<div class="text-xs text-gray-200">Monday – Saturday: 8:30 AM – 7:00 PM IST</div>
+<div class="text-xs text-brand-red font-semibold mt-0.5">24/7 Breakdown Emergency Helpline for AMCs</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-white/10">
+<div class="flex items-center gap-3 bg-brand-blue/30 p-3.5 rounded-xl border border-white/10">
+<i class="fa-solid fa-circle-check text-brand-red text-lg"></i>
+<div class="text-xs text-gray-200">
+<span class="font-bold text-white block">Guaranteed SLA:</span>
+                Formal commercial quotation &amp; equipment layout review delivered within 24 hours.
+              </div>
+</div>
+</div>
+</div>
+<!-- Right Column: Pure White Quotation Form -->
+<div class="lg:col-span-7 bg-white rounded-2xl p-8 sm:p-10 border border-gray-200 shadow-xl">
+<div class="mb-6">
+<h3 class="text-2xl font-heading font-extrabold text-brand-navy">
+              Request Commercial Equipment Quotation
+            </h3>
+<p class="text-xs text-brand-slate mt-1">
+              Provide project details below for wholesale tier pricing and technical specification sheets.
+            </p>
+</div>
+<form class="space-y-5" onsubmit="event.preventDefault(); alert('Quotation request submitted! A Techmate commercial engineer will contact you within 24 hours.');">
+<div class="grid sm:grid-cols-2 gap-5">
+<div>
+<label class="block text-xs font-bold text-brand-navy mb-1.5 uppercase">Full Name *</label>
+<input class="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition" placeholder="e.g. Vikram Sharma" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-navy mb-1.5 uppercase">Company / Establishment *</label>
+<input class="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition" placeholder="e.g. Apex Hospitality Ltd." required="" type="text"/>
+</div>
+</div>
+<div class="grid sm:grid-cols-2 gap-5">
+<div>
+<label class="block text-xs font-bold text-brand-navy mb-1.5 uppercase">Work Email Address *</label>
+<input class="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition" placeholder="name@company.com" required="" type="email"/>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-navy mb-1.5 uppercase">Phone / WhatsApp Number *</label>
+<input class="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition" placeholder="+91 98200 00000" required="" type="tel"/>
+</div>
+</div>
+<div class="grid sm:grid-cols-2 gap-5">
+<div>
+<label class="block text-xs font-bold text-brand-navy mb-1.5 uppercase">Equipment Category *</label>
+<select class="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition bg-white">
+<option>Commercial Cooking &amp; Combi Ovens</option>
+<option>Bakery &amp; Dough Processing Machinery</option>
+<option>Commercial Refrigeration &amp; Cold Rooms</option>
+<option>Custom Stainless Steel Fabrication</option>
+<option>Commercial Warewashing &amp; Dishwashers</option>
+<option>Full Turnkey Kitchen Engineering Project</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-navy mb-1.5 uppercase">Expected Project Timeline</label>
+<select class="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition bg-white">
+<option>Immediate (Within 15 days)</option>
+<option>1 to 2 Months</option>
+<option>3 to 6 Months</option>
+<option>Budgeting / Future Planning</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-brand-navy mb-1.5 uppercase">Equipment Requirements / Kitchen Scope</label>
+<textarea class="w-full px-4 py-3 text-sm rounded-lg border border-gray-300 focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/20 outline-none transition" placeholder="Specify required equipment models, capacity, daily meal covers, or attach project site dimensions..." rows="3"></textarea>
+</div>
+<div class="flex items-center gap-2 text-xs text-gray-500">
+<input checked="" class="rounded text-brand-blue focus:ring-brand-blue" id="nda" type="checkbox"/>
+<label for="nda">Include preliminary 2D AutoCAD equipment positioning drawing with quote.</label>
+</div>
+<button class="w-full py-4 px-6 rounded-lg bg-brand-red hover:bg-[#ba1e2a] text-white font-heading font-bold text-base shadow-lg shadow-brand-red/30 transition transform hover:-translate-y-0.5 flex items-center justify-center gap-2" type="submit">
+<span>Submit Quotation Request</span>
+<i class="fa-solid fa-paper-plane text-sm"></i>
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- 13. COMPREHENSIVE FOOTER & TOP CTA BANNER -->
+<!-- ========================================================================= -->
+<!-- Top CTA Banner -->
+<div class="bg-brand-blue py-12 border-b border-white/10 text-white">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+<div>
+<h3 class="text-2xl sm:text-3xl font-heading font-extrabold tracking-tight">
+          Planning a Commercial Kitchen or Food Service Project?
+        </h3>
+<p class="text-blue-100 text-sm mt-1">
+          Our engineering team assists with CAD layout design, MEP specifications, and custom fabrication.
+        </p>
+</div>
+<div class="shrink-0 flex items-center gap-4">
+<a class="px-8 py-3.5 rounded-lg bg-brand-red hover:bg-[#b81d29] text-white font-bold text-sm shadow-xl shadow-brand-red/30 transition" href="#quote-form">
+          Let’s Discuss Your Equipment Needs
+        </a>
+</div>
+</div>
+</div>
+<!-- 4-Column Deep Navy Footer -->
+<footer class="bg-brand-navy text-gray-300 pt-16 pb-8 border-t border-brand-navy" id="contact">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-white/10">
+<!-- Col 1: Overview & ISO badge -->
+<div class="lg:col-span-4 space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded bg-brand-blue flex items-center justify-center font-heading font-black text-xl text-white">
+              T<span class="text-brand-red">M</span>
+</div>
+<div>
+<span class="font-heading font-extrabold text-lg text-white block">TECHMATE INDUSTRIES</span>
+<span class="text-[10px] tracking-widest text-brand-red font-bold">COMMERCIAL EQUIPMENT MANUFACTURER</span>
+</div>
+</div>
+<p class="text-xs text-gray-400 leading-relaxed">
+            Techmate Industries is a premier Indian manufacturer and turnkey distributor of heavy-duty commercial kitchen, industrial bakery, and precision refrigeration systems built for high-demand foodservice operators.
+          </p>
+<div class="flex items-center gap-2 pt-2">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-[11px] font-semibold text-gray-300">
+<i class="fa-solid fa-certificate text-brand-red"></i> ISO 9001:2015 Certified
+            </span>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white/5 border border-white/10 text-[11px] font-semibold text-gray-300">
+<i class="fa-solid fa-shield text-blue-400"></i> CE Mark Standard
+            </span>
+</div>
+<div class="flex space-x-3 pt-3 text-gray-400">
+<a class="w-8 h-8 rounded bg-white/5 hover:bg-brand-red hover:text-white flex items-center justify-center transition" href="#"><i class="fa-brands fa-linkedin-in text-xs"></i></a>
+<a class="w-8 h-8 rounded bg-white/5 hover:bg-brand-red hover:text-white flex items-center justify-center transition" href="#"><i class="fa-brands fa-youtube text-xs"></i></a>
+<a class="w-8 h-8 rounded bg-white/5 hover:bg-brand-red hover:text-white flex items-center justify-center transition" href="#"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+<a class="w-8 h-8 rounded bg-white/5 hover:bg-brand-red hover:text-white flex items-center justify-center transition" href="#"><i class="fa-brands fa-instagram text-xs"></i></a>
+</div>
+</div>
+<!-- Col 2: Quick Links -->
+<div class="lg:col-span-2 space-y-3">
+<h4 class="text-sm font-heading font-bold text-white uppercase tracking-wider">Quick Links</h4>
+<ul class="text-xs space-y-2.5">
+<li><a class="hover:text-white transition" href="#">About Techmate</a></li>
+<li><a class="hover:text-white transition" href="#about">Manufacturing Facility</a></li>
+<li><a class="hover:text-white transition" href="#turnkey-process">Turnkey Engineering</a></li>
+<li><a class="hover:text-white transition" href="#projects">Commissioned Projects</a></li>
+<li><a class="hover:text-white transition" href="#quote-form">Certifications &amp; QA</a></li>
+<li><a class="hover:text-white transition" href="#blog">Technical Articles</a></li>
+<li><a class="hover:text-white transition" href="#quote-form">Warranty &amp; AMC Plans</a></li>
+</ul>
+</div>
+<!-- Col 3: Equipment Categories -->
+<div class="lg:col-span-3 space-y-3">
+<h4 class="text-sm font-heading font-bold text-white uppercase tracking-wider">Equipment Categories</h4>
+<ul class="text-xs space-y-2.5">
+<li><a class="hover:text-white transition" href="#solutions">Commercial Cooking Ranges</a></li>
+<li><a class="hover:text-white transition" href="#solutions">Touchscreen Combi Steam Ovens</a></li>
+<li><a class="hover:text-white transition" href="#solutions">Spiral &amp; Planetary Dough Mixers</a></li>
+<li><a class="hover:text-white transition" href="#solutions">Rotary Rack Industrial Ovens</a></li>
+<li><a class="hover:text-white transition" href="#solutions">Blast Freezers &amp; Walk-In Cold Rooms</a></li>
+<li><a class="hover:text-white transition" href="#solutions">Custom Stainless Exhaust Hoods</a></li>
+<li><a class="hover:text-white transition" href="#solutions">Flight-Type Conveyor Dishwashers</a></li>
+</ul>
+</div>
+<!-- Col 4: Factory Desk & Newsletter -->
+<div class="lg:col-span-3 space-y-4">
+<h4 class="text-sm font-heading font-bold text-white uppercase tracking-wider">Factory Desk</h4>
+<div class="text-xs space-y-2 text-gray-400">
+<p><strong class="text-gray-200">Works:</strong> Plot 48-52, Phase IV, Navi Mumbai, MH 400710</p>
+<p><strong class="text-gray-200">Phone:</strong> +91 800-TECHMATE</p>
+<p><strong class="text-gray-200">Email:</strong> sales@techmateindustries.com</p>
+</div>
+<div>
+<span class="text-xs font-bold text-white block mb-2">Subscribe to Equipment Catalog Updates</span>
+<div class="flex">
+<input class="bg-white/10 px-3 py-2 text-xs rounded-l border border-white/20 text-white placeholder-gray-400 focus:outline-none w-full" placeholder="Enter work email" type="email"/>
+<button class="bg-brand-red px-3 py-2 text-xs font-bold text-white rounded-r hover:bg-[#ba1e2a] transition">
+<i class="fa-solid fa-arrow-right"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Copyright Bottom Bar -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+<div>
+          © 2025 Techmate Industries Ltd. All rights reserved. Commercial Kitchen Equipment &amp; Engineering.
+        </div>
+<div class="flex items-center space-x-6">
+<a class="hover:text-gray-400 transition" href="#">Privacy Policy</a>
+<a class="hover:text-gray-400 transition" href="#">Terms of Supply</a>
+<a class="hover:text-gray-400 transition" href="#">OEM Partner Policy</a>
+<a class="hover:text-gray-400 transition" href="#">Sitemap</a>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>
