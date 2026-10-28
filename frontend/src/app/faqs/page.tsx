@@ -22,7 +22,7 @@ export default function FAQsPage() {
       category: 'Procurement & Quotations',
       question: 'How do I obtain formal pricing for commercial kitchen equipment?',
       answer:
-        'You can use our online "Request a Quote" tool to select machinery models, specify required quantities, and submit your technical parameters. Our sales engineering team issues formal GST-compliant commercial quotations within 24 business hours.',
+        'You can use our online "Get a Quote" tool to select machinery models, specify required quantities, and submit your technical parameters. Our sales engineering team issues formal GST-compliant commercial quotations within 24 business hours.',
     },
     {
       category: 'Procurement & Quotations',

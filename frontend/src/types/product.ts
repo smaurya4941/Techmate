@@ -3,12 +3,14 @@
  */
 
 export type EquipmentCategory =
-  | 'cooking-ranges'
-  | 'combi-ovens'
-  | 'bakery-machinery'
-  | 'commercial-refrigeration'
-  | 'stainless-steel-prep'
-  | 'warewashing-sanitation';
+  | 'bakery-baking'
+  | 'cooking'
+  | 'food-preparation'
+  | 'dishwashing'
+  | 'refrigeration'
+  | 'hot-holding'
+  | 'beverage'
+  | 'kitchen-equipment';
 
 export interface CategoryInfo {
   slug: EquipmentCategory;
@@ -16,6 +18,12 @@ export interface CategoryInfo {
   description: string;
   iconName: string;
   itemCount: number;
+}
+
+export interface SubCategoryInfo {
+  slug: string;
+  name: string;
+  category: EquipmentCategory;
 }
 
 export interface ProductSpecification {
@@ -32,6 +40,10 @@ export interface ProductItem {
   modelNumber: string;
   category: EquipmentCategory;
   categoryName: string;
+  /** Slug of a SubCategoryInfo belonging to `category`. */
+  subCategory?: string;
+  /** Slug of a partner BrandInfo when the product is supplied under a third-party brand. */
+  brand?: string;
   shortDescription: string;
   fullDescription: string;
   image: string;

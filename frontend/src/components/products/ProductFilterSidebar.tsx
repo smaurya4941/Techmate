@@ -1,13 +1,19 @@
 'use client';
 
 import React from 'react';
-import { CATEGORIES_DATA } from '@/lib/products-data';
+import {
+  CATEGORIES_DATA,
+  countProductsInSubCategory,
+  getSubCategoriesOf,
+} from '@/lib/products-data';
 import { Filter, X, RotateCcw, Check } from 'lucide-react';
 import { Button } from '../ui/Button';
 
 export interface ProductFilterSidebarProps {
   selectedCategory: string;
   onSelectCategory: (category: string) => void;
+  selectedSubCategory: string;
+  onSelectSubCategory: (subCategory: string) => void;
   selectedPower: string;
   onSelectPower: (power: string) => void;
   onReset: () => void;
@@ -20,6 +26,8 @@ export interface ProductFilterSidebarProps {
 export const ProductFilterSidebar: React.FC<ProductFilterSidebarProps> = ({
   selectedCategory,
   onSelectCategory,
+  selectedSubCategory,
+  onSelectSubCategory,
   selectedPower,
   onSelectPower,
   onReset,
@@ -93,26 +101,67 @@ export const ProductFilterSidebar: React.FC<ProductFilterSidebarProps> = ({
 
           {CATEGORIES_DATA.map((cat) => {
             const isSelected = selectedCategory === cat.slug;
+            const subCategories = isSelected ? getSubCategoriesOf(cat.slug) : [];
             return (
-              <button
-                key={cat.slug}
-                type="button"
-                onClick={() => onSelectCategory(cat.slug)}
-                className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition ${
-                  isSelected
-                    ? 'bg-[#174A83] text-white font-bold shadow-sm'
-                    : 'text-[#344054] hover:bg-[#F3F6FA]'
-                }`}
-              >
-                <span className="truncate pr-2">{cat.name}</span>
-                <span
-                  className={`text-[10px] px-1.5 py-0.5 rounded ${
-                    isSelected ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-500'
+              <div key={cat.slug}>
+                <button
+                  type="button"
+                  onClick={() => onSelectCategory(cat.slug)}
+                  aria-pressed={isSelected}
+                  className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition ${
+                    isSelected
+                      ? 'bg-[#174A83] text-white font-bold shadow-sm'
+                      : 'text-[#344054] hover:bg-[#F3F6FA]'
                   }`}
                 >
-                  {cat.itemCount}
-                </span>
-              </button>
+                  <span className="truncate pr-2">{cat.name}</span>
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-500'
+                    }`}
+                  >
+                    {cat.itemCount}
+                  </span>
+                </button>
+
+                {subCategories.length > 0 && (
+                  <div className="mt-1 mb-2 ml-3 pl-3 border-l-2 border-[#174A83]/20 space-y-1">
+                    <button
+                      type="button"
+                      onClick={() => onSelectSubCategory('all')}
+                      aria-pressed={selectedSubCategory === 'all'}
+                      className={`w-full text-left px-2.5 py-1.5 rounded-md text-[11px] transition ${
+                        selectedSubCategory === 'all'
+                          ? 'bg-[#F3F6FA] text-[#174A83] font-bold'
+                          : 'text-gray-500 hover:text-[#174A83] hover:bg-[#F3F6FA]'
+                      }`}
+                    >
+                      All {cat.name}
+                    </button>
+                    {subCategories.map((sub) => {
+                      const isSubSelected = selectedSubCategory === sub.slug;
+                      return (
+                        <button
+                          key={sub.slug}
+                          type="button"
+                          onClick={() => onSelectSubCategory(sub.slug)}
+                          aria-pressed={isSubSelected}
+                          className={`w-full text-left px-2.5 py-1.5 rounded-md text-[11px] flex items-center justify-between transition ${
+                            isSubSelected
+                              ? 'bg-[#F3F6FA] text-[#174A83] font-bold'
+                              : 'text-gray-500 hover:text-[#174A83] hover:bg-[#F3F6FA]'
+                          }`}
+                        >
+                          <span className="truncate pr-2">{sub.name}</span>
+                          <span className="text-[10px] text-gray-400">
+                            {countProductsInSubCategory(sub.slug)}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             );
           })}
         </div>

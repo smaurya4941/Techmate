@@ -8,6 +8,8 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
 import { Honeypot } from '@/components/ui/Honeypot';
 import { ApiError } from '@/lib/http';
 import { mapFieldErrors, submitEnquiry } from '@/lib/submissions';
+import { buildWhatsAppUrl } from '@/lib/site-config';
+import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon';
 import {
   MapPin,
   Phone,
@@ -112,7 +114,7 @@ export default function ContactPage() {
           
           {/* Breadcrumbs */}
           <div className="pt-2">
-            <Breadcrumbs items={[{ label: 'Contact Us & Factory Plant' }]} />
+            <Breadcrumbs items={[{ label: 'Contact' }]} />
           </div>
 
           {/* Page Heading (Dark Sleek Glassmorphism Header) */}
@@ -363,6 +365,23 @@ export default function ContactPage() {
 
                   <div className="flex items-start gap-4">
                     <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                      <WhatsAppIcon className="w-5 h-5 text-emerald-400" />
+                    </div>
+                    <div>
+                      <strong className="block text-white mb-0.5">WhatsApp:</strong>
+                      <a
+                        href={buildWhatsAppUrl()}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-blue-300 transition-colors font-bold block"
+                      >
+                        +91 800-TECHMATE (832-4628)
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
                       <Mail className="w-5 h-5 text-emerald-400" />
                     </div>
                     <div>
@@ -391,6 +410,32 @@ export default function ContactPage() {
                 <div className="pt-4 border-t border-white/15 flex items-center gap-2.5 text-xs text-blue-200">
                   <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>Factory visits welcomed by prior appointment.</span>
+                </div>
+              </div>
+
+              {/* WhatsApp quick chat */}
+              <div className="bg-[#11141c] rounded-[32px] border border-emerald-500/20 p-8 shadow-2xl space-y-4">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-400 block">
+                  INSTANT CHAT
+                </span>
+                <h4 className="font-heading font-bold text-lg text-white">
+                  Prefer WhatsApp?
+                </h4>
+                <p className="text-xs text-gray-300 leading-relaxed">
+                  Message our sales engineers directly with your requirement, site photos or equipment drawings.
+                </p>
+                <div className="pt-2">
+                  <a
+                    href={buildWhatsAppUrl(
+                      'Hello Techmate Industries, I am contacting you from your website regarding a commercial kitchen requirement.'
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs tracking-wider uppercase transition shadow-lg shadow-emerald-900/30"
+                  >
+                    <WhatsAppIcon className="w-4 h-4" />
+                    <span>Chat on WhatsApp</span>
+                  </a>
                 </div>
               </div>
 

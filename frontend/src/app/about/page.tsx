@@ -5,7 +5,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { PageContainer } from '@/components/layout/PageContainer';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
-import { Button } from '@/components/ui/Button';
+import { OWN_BRANDS } from '@/lib/brands-data';
 import {
   Award,
   ShieldCheck,
@@ -15,7 +15,33 @@ import {
   Flame,
   Wheat,
   Snowflake,
+  Compass,
+  Wrench,
+  Handshake,
 } from 'lucide-react';
+
+const TEAM_FUNCTIONS = [
+  {
+    icon: Compass,
+    title: 'Design & Application Engineering',
+    desc: 'Layout planning, equipment sizing and utility coordination for every project.',
+  },
+  {
+    icon: Factory,
+    title: 'Manufacturing & Quality',
+    desc: 'Fabrication, thermal calibration and ISO 9001:2015 quality control at our plant.',
+  },
+  {
+    icon: Wrench,
+    title: 'Installation & Service Engineers',
+    desc: 'Commissioning, preventive maintenance and breakdown response across regions.',
+  },
+  {
+    icon: Handshake,
+    title: 'Sales Engineering & Distribution',
+    desc: 'Technical quotations, project follow-up and our regional distributor network.',
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -25,7 +51,7 @@ export default function AboutPage() {
       <main className="min-h-screen bg-[#F3F6FA]/50 py-8">
         <PageContainer>
           <div className="mb-6">
-            <Breadcrumbs items={[{ label: 'About Techmate Industries' }]} />
+            <Breadcrumbs items={[{ label: 'About Us' }]} />
           </div>
 
           {/* Hero Banner */}
@@ -134,6 +160,50 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
+
+          {/* Brands */}
+          <section aria-labelledby="about-brands" className="bg-white rounded-3xl border border-gray-200/90 p-8 sm:p-12 mb-12 shadow-sm">
+            <div className="flex items-center justify-between mb-6">
+              <h2 id="about-brands" className="text-2xl font-bold font-heading text-[#102B46]">
+                Our Techmate® Brands
+              </h2>
+              <Link href="/brands" className="text-xs font-bold text-[#174A83] hover:text-[#D62836] transition-colors">
+                View all brands
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {OWN_BRANDS.map((brand) => (
+                <Link
+                  key={brand.slug}
+                  href={`/brands/${brand.slug}`}
+                  className="p-5 rounded-2xl bg-[#F3F6FA] border border-gray-200/70 hover:border-[#174A83] transition-colors block"
+                >
+                  <h3 className="font-bold text-[#102B46] text-sm mb-1">{brand.name}</h3>
+                  <span className="block text-xs font-semibold text-[#174A83] mb-2">{brand.division}</span>
+                  <p className="text-xs text-[#344054] leading-relaxed">{brand.tagline}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Team */}
+          <section aria-labelledby="about-team" className="bg-white rounded-3xl border border-gray-200/90 p-8 sm:p-12 mb-12 shadow-sm">
+            <h2 id="about-team" className="text-2xl font-bold font-heading text-[#102B46] mb-2">
+              Our Team
+            </h2>
+            <p className="text-sm text-[#344054] mb-6 max-w-2xl">
+              Engineers and specialists across design, manufacturing, service and sales work together on every project from first sketch to daily operation.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {TEAM_FUNCTIONS.map(({ icon: Icon, title, desc }) => (
+                <div key={title} className="p-5 rounded-2xl bg-[#F3F6FA] border border-gray-200/70">
+                  <Icon className="w-6 h-6 text-[#174A83] mb-3" aria-hidden="true" />
+                  <h3 className="font-bold text-[#102B46] text-sm mb-1">{title}</h3>
+                  <p className="text-xs text-[#344054] leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
         </PageContainer>
       </main>
 

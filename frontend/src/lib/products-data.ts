@@ -1,4 +1,4 @@
-import { ProductItem, CategoryInfo } from '@/types/product';
+import { ProductItem, CategoryInfo, SubCategoryInfo, EquipmentCategory } from '@/types/product';
 
 /**
  * DEVELOPMENT FIXTURE DATA (Phase 2 Prototype)
@@ -8,50 +8,120 @@ import { ProductItem, CategoryInfo } from '@/types/product';
  * to map 1:1 with future Laravel REST API responses (`/api/products`).
  */
 
-export const CATEGORIES_DATA: CategoryInfo[] = [
+/**
+ * REAL TAXONOMY supplied by Techmate: 8 main categories, each with its sub-categories.
+ * "Combi Ovens" appears under both Bakery & Baking and Cooking Equipment, so those use
+ * distinct sub-category slugs.
+ */
+const TAXONOMY: {
+  slug: EquipmentCategory;
+  name: string;
+  iconName: string;
+  subCategories: [slug: string, name: string][];
+}[] = [
   {
-    slug: 'cooking-ranges',
-    name: 'Commercial Cooking Ranges',
-    description: 'Heavy-duty 4, 6, and 8 burner ranges with high-efficiency burners and continuous cast iron pan supports.',
-    iconName: 'Flame',
-    itemCount: 8,
-  },
-  {
-    slug: 'combi-ovens',
-    name: 'Touch Combi Steam Ovens',
-    description: 'Precision thermal steam and convection combi ovens with automatic boiler flush and digital recipe programming.',
-    iconName: 'Layers',
-    itemCount: 6,
-  },
-  {
-    slug: 'bakery-machinery',
-    name: 'Industrial Bakery Machinery',
-    description: 'High-torque spiral kneaders, planetary mixers, rotary rack ovens, and automated dough dividers.',
+    slug: 'bakery-baking',
+    name: 'Bakery & Baking',
     iconName: 'Wheat',
-    itemCount: 10,
+    subCategories: [
+      ['bakery-ovens', 'Bakery Ovens'],
+      ['convection-ovens', 'Convection Ovens'],
+      ['deck-ovens', 'Deck Ovens'],
+      ['bakery-combi-ovens', 'Combi Ovens'],
+      ['rack-ovens', 'Rack Ovens'],
+      ['spiral-dough-mixers', 'Spiral Dough Mixers'],
+      ['planetary-mixers', 'Planetary Mixers'],
+      ['proofers', 'Proofers / Proving Chambers'],
+      ['dough-sheeters', 'Dough Sheeters'],
+      ['bread-slicers', 'Bread Slicers'],
+    ],
   },
   {
-    slug: 'commercial-refrigeration',
-    name: 'Commercial Refrigeration & Cold Rooms',
-    description: 'Tropicalized reach-in chillers, sub-zero blast freezers, undercounter prep counters, and modular cold rooms.',
+    slug: 'cooking',
+    name: 'Cooking Equipment',
+    iconName: 'Flame',
+    subCategories: [
+      ['cooking-combi-ovens', 'Combi Ovens'],
+      ['cooking-ranges', 'Cooking Ranges'],
+      ['fryers', 'Fryers'],
+      ['griddles', 'Griddles'],
+      ['induction-cooking', 'Induction Cooking'],
+      ['salamanders', 'Salamanders'],
+    ],
+  },
+  {
+    slug: 'food-preparation',
+    name: 'Food Preparation',
+    iconName: 'UtensilsCrossed',
+    subCategories: [
+      ['food-processors', 'Food Processors'],
+      ['vegetable-preparation', 'Vegetable Preparation'],
+      ['stick-blenders', 'Stick Blenders'],
+      ['food-prep-mixers', 'Mixers'],
+      ['choppers', 'Choppers'],
+    ],
+  },
+  {
+    slug: 'dishwashing',
+    name: 'Dishwashing',
+    iconName: 'Sparkles',
+    subCategories: [
+      ['undercounter-dishwashers', 'Undercounter Dishwashers'],
+      ['hood-type-dishwashers', 'Hood Type Dishwashers'],
+      ['rack-conveyor-dishwashers', 'Rack Conveyor Dishwashers'],
+      ['flight-type-dishwashers', 'Flight Type Dishwashers'],
+      ['glasswashers', 'Glasswashers'],
+    ],
+  },
+  {
+    slug: 'refrigeration',
+    name: 'Refrigeration',
     iconName: 'Snowflake',
-    itemCount: 12,
+    subCategories: [
+      ['upright-refrigerators', 'Upright Refrigerators'],
+      ['freezers', 'Freezers'],
+      ['under-counter-refrigeration', 'Under Counter Refrigeration'],
+      ['preparation-counters', 'Preparation Counters'],
+      ['blast-chillers-freezers', 'Blast Chillers & Freezers'],
+    ],
   },
   {
-    slug: 'stainless-steel-prep',
-    name: 'Custom Stainless Steel Fabrication',
-    description: 'AISI 304 food-grade work tables, deep-drawn sinks, heavy-duty exhaust canopies, and mobile bain-maries.',
-    iconName: 'Sparkles',
-    itemCount: 15,
+    slug: 'hot-holding',
+    name: 'Hot Holding',
+    iconName: 'Thermometer',
+    subCategories: [
+      ['holding-cabinets', 'Holding Cabinets'],
+      ['heated-shelves', 'Heated Shelves'],
+      ['food-warmers', 'Food Warmers'],
+    ],
   },
   {
-    slug: 'warewashing-sanitation',
-    name: 'Commercial Warewashing & Sanitation',
-    description: 'High-throughput hood-type dishwashers, flight conveyors, and thermal sanitizing rinse systems.',
-    iconName: 'Sparkles',
-    itemCount: 5,
+    slug: 'beverage',
+    name: 'Beverage Equipment',
+    iconName: 'Coffee',
+    subCategories: [
+      ['coffee-machines', 'Coffee Machines'],
+      ['coffee-grinders', 'Coffee Grinders'],
+      ['juice-equipment', 'Juice Equipment'],
+    ],
+  },
+  {
+    slug: 'kitchen-equipment',
+    name: 'Kitchen Equipment',
+    iconName: 'ChefHat',
+    subCategories: [
+      ['stainless-steel-equipment', 'Stainless Steel Equipment'],
+      ['work-tables', 'Work Tables'],
+      ['sinks', 'Sinks'],
+      ['storage-racks', 'Storage Racks'],
+      ['kitchen-accessories', 'Kitchen Accessories'],
+    ],
   },
 ];
+
+export const SUBCATEGORIES_DATA: SubCategoryInfo[] = TAXONOMY.flatMap((category) =>
+  category.subCategories.map(([slug, name]) => ({ slug, name, category: category.slug }))
+);
 
 export const SAMPLE_PRODUCTS: ProductItem[] = [
   {
@@ -59,8 +129,9 @@ export const SAMPLE_PRODUCTS: ProductItem[] = [
     slug: 'tm-pro-series-10gn-touch-combi-oven',
     name: 'TM-Pro Series Touch Combi Oven (10-Tray GN1/1)',
     modelNumber: 'TM-CO-10GN',
-    category: 'combi-ovens',
-    categoryName: 'Touch Combi Steam Ovens',
+    category: 'cooking',
+    categoryName: 'Cooking Equipment',
+    subCategory: 'cooking-combi-ovens',
     shortDescription: 'Heavy-duty electric 10-tray combi oven with precision steam injection, automatic boiler flush, and 7-inch touch interface.',
     fullDescription: 'The TM-Pro 10GN is engineered for commercial high-volume hospitality, banquet, and healthcare dietary kitchens. Featuring dual boiler steam technology with precision ±0.5°C thermal control, a heavy-gauge AISI 304 coved cooking chamber, and a multi-point core temperature probe. Compatible with standard GN 1/1 containers.',
     image: '/images/products/combi-oven.jpg',
@@ -90,8 +161,9 @@ export const SAMPLE_PRODUCTS: ProductItem[] = [
     slug: 'heavy-duty-6-burner-gas-range-with-static-oven',
     name: 'Heavy-Duty 6-Burner Gas Range with Static Oven',
     modelNumber: 'TM-GR-6B-OV',
-    category: 'cooking-ranges',
-    categoryName: 'Commercial Cooking Ranges',
+    category: 'cooking',
+    categoryName: 'Cooking Equipment',
+    subCategory: 'cooking-ranges',
     shortDescription: 'Industrial stainless steel cooking range with 6 cast iron high-efficiency burners and integrated GN 2/1 gastro oven.',
     fullDescription: 'Constructed from 1.5mm thick AISI 304 stainless steel, this range is designed for continuous 18-hour daily operation in demanding restaurant and hotel kitchens. High-heat brass flame spreaders with individual pilot flames, safety thermocouples, and deep spill-collection trays ensure seamless cleaning.',
     image: '/images/products/cooking-range.jpg',
@@ -118,8 +190,9 @@ export const SAMPLE_PRODUCTS: ProductItem[] = [
     slug: 'industrial-spiral-kneader-100kg-dough',
     name: 'Industrial Heavy-Duty Spiral Kneader (100kg Dough)',
     modelNumber: 'TM-SP-100',
-    category: 'bakery-machinery',
-    categoryName: 'Industrial Bakery Machinery',
+    category: 'bakery-baking',
+    categoryName: 'Bakery & Baking',
+    subCategory: 'spiral-dough-mixers',
     shortDescription: 'Two-speed industrial spiral mixer with fixed stainless bowl, dual timers, and safety grid for continuous dough production.',
     fullDescription: 'Specifically calibrated for industrial bakeries, artisan bread plants, and pizza production hubs. High-torque dual motor drive system powers both the spiral hook and bowl independently, ensuring gentle, oxygen-rich gluten matrix development without dough overheating.',
     image: '/images/products/spiral-mixer.jpg',
@@ -146,8 +219,9 @@ export const SAMPLE_PRODUCTS: ProductItem[] = [
     slug: 'tropicalized-4-door-reach-in-vertical-chiller',
     name: 'Tropicalized 4-Door Vertical Reach-In Chiller',
     modelNumber: 'TM-RF-4D-1000L',
-    category: 'commercial-refrigeration',
-    categoryName: 'Commercial Refrigeration & Cold Rooms',
+    category: 'refrigeration',
+    categoryName: 'Refrigeration',
+    subCategory: 'upright-refrigerators',
     shortDescription: '1,000-litre 4-door stainless upright chiller with European compressor, auto-defrost, and digital climate controller.',
     fullDescription: 'Tropicalized refrigeration designed to maintain consistent core temperatures in high-ambient commercial kitchens up to +43°C. Features Danfoss/Embraco compressor, ventilated uniform air circulation, self-closing magnetic gasket doors, and eco-friendly R290 refrigerant.',
     image: '/images/products/refrigeration-chiller.jpg',
@@ -174,8 +248,9 @@ export const SAMPLE_PRODUCTS: ProductItem[] = [
     slug: 'rapid-temperature-blast-chiller-freezer-10gn',
     name: 'Rapid Temperature Blast Chiller / Freezer (10 GN)',
     modelNumber: 'TM-BF-10GN',
-    category: 'commercial-refrigeration',
-    categoryName: 'Commercial Refrigeration & Cold Rooms',
+    category: 'refrigeration',
+    categoryName: 'Refrigeration',
+    subCategory: 'blast-chillers-freezers',
     shortDescription: 'HACCP compliant blast chiller bringing 40kg food from +90°C down to +3°C in under 90 minutes.',
     fullDescription: 'Essential for high-volume banqueting, cloud kitchens, and central commissary food preparation. Preserves cellular structure, moisture, and aroma of freshly cooked food while preventing bacterial multiplication in compliance with strict international food hygiene protocols.',
     image: '/images/products/blast-chiller.jpg',
@@ -201,8 +276,9 @@ export const SAMPLE_PRODUCTS: ProductItem[] = [
     slug: 'heavy-duty-stainless-steel-prep-table-with-sink',
     name: 'Custom AISI 304 Stainless Steel Work Table with Sink Unit',
     modelNumber: 'TM-SS-WT-2400',
-    category: 'stainless-steel-prep',
-    categoryName: 'Custom Stainless Steel Fabrication',
+    category: 'kitchen-equipment',
+    categoryName: 'Kitchen Equipment',
+    subCategory: 'work-tables',
     shortDescription: 'Food-grade 16-gauge stainless steel preparation island with integrated sound-dampened sink and undershelf.',
     fullDescription: 'Custom fabricated for commercial kitchen wash-up, prep, and butchery sections. Seamless laser-cut and argon TIG welded construction with full sound-deadening marine plywood backing, sanitary 100mm coved rear backsplash, and adjustable bullet leveling feet.',
     image: '/images/products/stainless-table.jpg',
@@ -225,6 +301,16 @@ export const SAMPLE_PRODUCTS: ProductItem[] = [
   },
 ];
 
+/** Categories shown across the site. Descriptions list the sub-categories; counts come from the catalogue. */
+export const CATEGORIES_DATA: CategoryInfo[] = TAXONOMY.map((category) => ({
+  slug: category.slug,
+  name: category.name,
+  iconName: category.iconName,
+  description: category.subCategories.map(([, name]) => name).join(', '),
+  itemCount: SAMPLE_PRODUCTS.filter((product) => product.category === category.slug).length,
+}));
+
+
 /**
  * Helper to fetch all products or filter them
  */
@@ -243,4 +329,18 @@ export function getProductsByCategory(category: string): ProductItem[] {
 
 export function getRelatedProducts(currentId: string, category: string, limit = 3): ProductItem[] {
   return SAMPLE_PRODUCTS.filter((p) => p.id !== currentId && p.category === category).slice(0, limit);
+}
+
+export function getSubCategory(slug: string): SubCategoryInfo | undefined {
+  return SUBCATEGORIES_DATA.find((s) => s.slug === slug);
+}
+
+/** Number of catalogue products in a sub-category. */
+export function countProductsInSubCategory(slug: string): number {
+  return SAMPLE_PRODUCTS.filter((p) => p.subCategory === slug).length;
+}
+
+/** All sub-categories of a category, in catalogue order. */
+export function getSubCategoriesOf(category: string): SubCategoryInfo[] {
+  return SUBCATEGORIES_DATA.filter((s) => s.category === category);
 }

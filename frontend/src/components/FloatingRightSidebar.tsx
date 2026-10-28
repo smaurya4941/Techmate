@@ -3,6 +3,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { ShoppingCart, Smartphone, Headphones, LayoutGrid } from 'lucide-react';
+import { buildWhatsAppUrl } from '@/lib/site-config';
+import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon';
 
 export function FloatingRightSidebar() {
   return (
@@ -12,20 +14,31 @@ export function FloatingRightSidebar() {
     >
       <Link
         href="/request-quote"
-        title="Quotation / RFQ Cart"
+        title="Get a Quote"
         className="p-1.5 hover:text-[#174A83] hover:bg-gray-100 rounded-lg transition"
       >
         <ShoppingCart className="w-4 h-4" />
-        <span className="sr-only">Quotation Cart</span>
+        <span className="sr-only">Get a Quote</span>
       </Link>
+
+      <a
+        href={buildWhatsAppUrl()}
+        target="_blank"
+        rel="noopener noreferrer"
+        title="Chat on WhatsApp"
+        className="p-1.5 text-emerald-600 hover:bg-emerald-50 rounded-lg transition"
+      >
+        <WhatsAppIcon className="w-4 h-4" />
+        <span className="sr-only">Chat on WhatsApp</span>
+      </a>
 
       <Link
         href="/products"
-        title="Equipment Catalogue Grid"
+        title="Products"
         className="p-1.5 hover:text-[#174A83] hover:bg-gray-100 rounded-lg transition"
       >
         <Smartphone className="w-4 h-4" />
-        <span className="sr-only">Equipment Catalogue</span>
+        <span className="sr-only">Products</span>
       </Link>
 
       <Link

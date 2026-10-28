@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { SITE } from '@/lib/site-config';
 
 export function Hero() {
   return (
@@ -21,7 +22,7 @@ export function Hero() {
       >
         <Image
           src="/images/hero-executive.jpg"
-          alt="Techmate Inspires Smarter Decisions - Commercial Kitchen Consultation"
+          alt="Professional commercial kitchen consultation with Techmate Industries"
           fill
           priority
           sizes="100vw"
@@ -42,10 +43,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 35 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-white leading-[1.05] mb-6 font-heading"
+            className="text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-white leading-[1.05] mb-6 font-heading uppercase"
           >
-            Techmate Inspires<br />
-            Smarter Decisions
+            Technifying
+            <br />
+            Your Kitchen
           </motion.h1>
 
           {/* Hero Subtitle */}
@@ -55,7 +57,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             className="text-sm sm:text-base lg:text-lg text-gray-200 mb-9 max-w-lg leading-relaxed font-normal"
           >
-            We believe that success comes from collaboration, and innovation. That&apos;s why we focus on understanding your unique goals
+            Professional Kitchen &amp; Bakery Equipment Solutions
           </motion.p>
 
           {/* CTA Buttons with Spring Physics on Hover */}
@@ -67,10 +69,11 @@ export function Hero() {
           >
             <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
               <Link
-                href="/request-quote"
-                className="inline-flex items-center px-8 py-3.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-medium backdrop-blur-md border border-white/20 transition-colors text-sm tracking-wide shadow-xl"
+                href={SITE.primaryCta.href}
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[#D62836] hover:bg-[#b81d29] text-white font-bold transition-colors text-sm tracking-wide shadow-xl shadow-[#D62836]/30"
               >
-                <span>Schedule Consultation</span>
+                <span>{SITE.primaryCta.label}</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>
 
@@ -79,7 +82,7 @@ export function Hero() {
                 href="/products"
                 className="inline-flex items-center px-6 py-3.5 rounded-xl bg-black/40 hover:bg-black/60 text-gray-200 hover:text-white font-medium backdrop-blur-md border border-white/10 transition-colors text-xs tracking-wider uppercase gap-2"
               >
-                <span>Explore Catalogue</span>
+                <span>Explore Products</span>
                 <ArrowRight className="w-3.5 h-3.5 text-blue-400" />
               </Link>
             </motion.div>

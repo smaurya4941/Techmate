@@ -3,6 +3,9 @@ import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { MetricsTicker } from '@/components/MetricsTicker';
 import { EquipmentGrid } from '@/components/EquipmentGrid';
+import { BrandsShowcase } from '@/components/home/BrandsShowcase';
+import { SolutionsShowcase } from '@/components/home/SolutionsShowcase';
+import { ServicesOverview } from '@/components/home/ServicesOverview';
 import { AboutFactoryBanner } from '@/components/AboutFactoryBanner';
 import { WhyChooseUs } from '@/components/WhyChooseUs';
 import { CaseStudiesCarousel } from '@/components/CaseStudiesCarousel';
@@ -38,44 +41,39 @@ export default async function Home() {
       <Header apiHealthStatus={apiStatus} />
 
       <main className="flex-1 w-full">
-        {/* 2. Hero Section (Screenshot 1: Full-Bleed Executive Background & Frosted CTA) */}
+        {/* 1. Hero: TECHNIFYING YOUR KITCHEN */}
         <Hero />
-
-        {/* 3. Metrics Section (Screenshot 2: Consultation Ribbon & High-Impact Stat Banner) */}
         <MetricsTicker />
 
-        {/* 4. Company Services Section (Screenshot 2 & 3: 2x2 Grid with Active Highlight Card) */}
+        {/* 2. Authorised Brands */}
+        <BrandsShowcase />
+
+        {/* 3. Product Categories */}
         <EquipmentGrid />
 
-        {/* 5. About Techmate 65,000 sq.ft. Plant & Engineering Showcase */}
-        <AboutFactoryBanner />
+        {/* 4. Solutions */}
+        <SolutionsShowcase />
 
-        {/* 6. Why Choose Techmate (Arched Mask & 3 Engineering Pillars) */}
+        {/* 5. Why Techmate */}
         <WhyChooseUs />
 
-        {/* 7. Case Studies Carousel with Bottom Hover Text Animation (Screenshot 1) */}
+        {/* 6. Featured Projects */}
         <CaseStudiesCarousel />
 
-        {/* 8. Split CTA Banner: Empowering Smarter Decisions & Contact Us (Screenshot 2) */}
-        <SplitCtaBanner />
-
-        {/* 8. Industrial Statement & Specifications Infinite Marquee */}
-        <MarqueeTicker />
-
-        {/* 9. Turnkey Engineering & Delivery Process (01, 02, 03) */}
-        <ProcessSteps />
-
-        {/* 10. Executive Chef & Facility Director Testimonials */}
+        {/* 7. Customer Reviews */}
         <Testimonials />
 
-        {/* 11. Technical Insights & Featured Articles */}
+        {/* Supporting sections */}
+        <AboutFactoryBanner />
+        <ServicesOverview />
+        <SplitCtaBanner />
+        <MarqueeTicker />
+        <ProcessSteps />
         <TechnicalInsights />
-
-        {/* 12. Direct Factory Desk & Appointment Form (Underline Inputs & Glowing Border) */}
         <QuoteForm />
       </main>
 
-      {/* 13. Pre-Footer Banner & 4-Column Deep Navy Corporate Footer */}
+      {/* 8. Final CTA: pre-footer banner "Building or upgrading your kitchen?", then the footer */}
       <Footer />
 
       {/* Floating Right Sidebar (from Screenshots 1, 2, 3) */}

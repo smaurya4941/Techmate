@@ -23,9 +23,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Techmate Industries | Commercial Kitchen, Bakery & Refrigeration Equipment",
+  title: "Techmate Industries | Technifying Your Kitchen - Premium Commercial Kitchen & Bakery Equipment Solutions",
   description:
-    "Leading B2B manufacturer and distributor of heavy-duty commercial kitchen cooking ranges, rotary bakery ovens, spiral mixers, blast chillers, and turnkey food-service equipment.",
+    "Technifying Your Kitchen. Techmate Industries is a premium commercial kitchen & bakery equipment solutions company: heavy-duty cooking ranges, rotary bakery ovens, spiral mixers, blast chillers, and turnkey food-service equipment.",
   keywords: [
     "commercial kitchen equipment",
     "industrial bakery machines",

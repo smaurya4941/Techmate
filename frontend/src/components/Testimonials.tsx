@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { FadeIn } from '@/components/animations/MotionWrapper';
 import { motion, AnimatePresence } from 'framer-motion';
+import { GOOGLE_REVIEWS_URL } from '@/lib/site-config';
 
 export function Testimonials() {
   const testimonials = [
@@ -72,17 +73,29 @@ export function Testimonials() {
               <div className="flex items-start justify-between gap-6 relative">
                 <div className="space-y-4 max-w-lg z-10">
                   <span className="inline-block px-3.5 py-1 rounded-full bg-[#181d28] text-[11px] font-bold tracking-widest text-gray-300 uppercase border border-white/10">
-                    TESTIMONIAL
+                    CUSTOMER REVIEWS
                   </span>
 
                   <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight leading-[1.12] font-heading">
                     What Our Customers<br />
-                    Say?
+                    Say
                   </h2>
 
                   <p className="text-xs sm:text-sm text-gray-400 leading-relaxed font-normal pt-1">
-                    At Techmate, we are a renowned global consulting and commercial kitchen manufacturing firm committed to collaboration.
+                    Hotels, bakeries and cloud kitchens share their experience working with Techmate.
                   </p>
+
+                  {GOOGLE_REVIEWS_URL && (
+                    <a
+                      href={GOOGLE_REVIEWS_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-xs font-bold text-blue-300 hover:text-white transition-colors pt-2"
+                    >
+                      <span>Read our Google reviews</span>
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  )}
                 </div>
 
                 {/* Large Double Quotation Mark */}

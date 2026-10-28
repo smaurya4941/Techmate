@@ -12,6 +12,9 @@ import {
   ShieldCheck,
   Send,
 } from 'lucide-react';
+import { buildWhatsAppUrl } from '@/lib/site-config';
+import { CATEGORIES_DATA } from '@/lib/products-data';
+import { WhatsAppIcon } from '@/components/icons/WhatsAppIcon';
 
 export function Footer() {
   const [newsletterEmail, setNewsletterEmail] = useState('');
@@ -32,24 +35,33 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
           <div>
             <span className="text-xs font-bold uppercase tracking-widest text-blue-200 block mb-1 font-mono">
-              COLLABORATE WITH EXPERTS
+              TALK TO A TECHMATE EXPERT
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-              Planning a Commercial Kitchen or Bakery Facility?
+              Building or upgrading your kitchen?
             </h3>
             <p className="text-xs sm:text-sm text-blue-100 mt-1 max-w-xl">
-              Get direct factory pricing, 2D/3D BIM layout coordination, and guaranteed on-site technical support.
+              Talk to a Techmate expert for equipment selection, layout planning, installation and after-sales support.
             </p>
           </div>
 
-          <div className="flex items-center gap-4 shrink-0">
+          <div className="flex flex-wrap items-center justify-center gap-3 shrink-0">
             <Link
               href="/request-quote"
               className="px-8 py-3.5 rounded-xl bg-[#D62836] hover:bg-[#b81d29] text-white font-extrabold text-sm shadow-xl shadow-[#D62836]/30 transition transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2"
             >
-              <span>Request Turnkey Quote</span>
+              <span>Get a Quote</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
+            <a
+              href={buildWhatsAppUrl()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 text-white font-bold text-sm transition flex items-center gap-2"
+            >
+              <WhatsAppIcon className="w-4 h-4" />
+              <span>Talk to an Expert</span>
+            </a>
           </div>
         </div>
       </div>
@@ -70,9 +82,10 @@ export function Footer() {
             </Link>
 
             <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-              Techmate Industries is a premier B2B manufacturer and distributor specializing
-              in commercial kitchen cooking ranges, industrial bakery machines, and commercial
-              refrigeration systems built for 24/7 demanding environments.
+              Technifying Your Kitchen. Techmate Industries is a premium commercial kitchen
+              &amp; bakery equipment solutions company, offering cooking ranges, industrial
+              bakery machines, and commercial refrigeration systems built for 24/7 demanding
+              environments.
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -119,22 +132,32 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/products" className="hover:text-white transition-colors">
-                  Equipment Catalogue
-                </Link>
-              </li>
-              <li>
-                <Link href="/industries" className="hover:text-white transition-colors">
-                  Industries & Solutions
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="hover:text-white transition-colors">
-                  Engineering Services
+                  Products
                 </Link>
               </li>
               <li>
                 <Link href="/brands" className="hover:text-white transition-colors">
-                  Brand Partners
+                  Brands
+                </Link>
+              </li>
+              <li>
+                <Link href="/solutions" className="hover:text-white transition-colors">
+                  Solutions
+                </Link>
+              </li>
+              <li>
+                <Link href="/projects" className="hover:text-white transition-colors">
+                  Projects
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="hover:text-white transition-colors">
+                  Services
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-white transition-colors">
+                  Contact
                 </Link>
               </li>
               <li>
@@ -150,47 +173,22 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Equipment Categories (3 cols) */}
+          {/* Column 3: Product Categories (3 cols) */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-xs font-bold uppercase tracking-wider text-blue-300 font-mono">
-              Equipment Categories
+              Product Categories
             </h4>
             <ul className="space-y-2.5 text-xs text-gray-300">
-              <li>
-                <Link href="/products?category=cooking-ranges" className="hover:text-white transition-colors">
-                  Commercial Cooking Ranges
-                </Link>
-              </li>
-              <li>
-                <Link href="/products?category=combi-ovens" className="hover:text-white transition-colors">
-                  Touch Combi Steam Ovens
-                </Link>
-              </li>
-              <li>
-                <Link href="/products?category=bakery-machinery" className="hover:text-white transition-colors">
-                  Planetary & Spiral Mixers
-                </Link>
-              </li>
-              <li>
-                <Link href="/products?category=bakery-machinery" className="hover:text-white transition-colors">
-                  Rotary Rack Baking Ovens
-                </Link>
-              </li>
-              <li>
-                <Link href="/products?category=commercial-refrigeration" className="hover:text-white transition-colors">
-                  Blast Chillers & Cold Rooms
-                </Link>
-              </li>
-              <li>
-                <Link href="/products?category=stainless-steel-prep" className="hover:text-white transition-colors">
-                  AISI 304 Stainless Prep Tables
-                </Link>
-              </li>
-              <li>
-                <Link href="/products?category=warewashing-sanitation" className="hover:text-white transition-colors">
-                  Commercial Warewashing
-                </Link>
-              </li>
+              {CATEGORIES_DATA.map((cat) => (
+                <li key={cat.slug}>
+                  <Link
+                    href={`/products?category=${cat.slug}`}
+                    className="hover:text-white transition-colors"
+                  >
+                    {cat.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -208,6 +206,15 @@ export function Footer() {
                 <Phone className="w-4 h-4 text-[#D62836] shrink-0" />
                 <span>+91 800-TECHMATE (832-4628)</span>
               </div>
+              <a
+                href={buildWhatsAppUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-white transition-colors"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Chat on WhatsApp</span>
+              </a>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#D62836] shrink-0" />
                 <span>sales@techmateindustries.com</span>

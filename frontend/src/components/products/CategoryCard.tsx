@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { CategoryInfo } from '@/types/product';
-import { ArrowRight, Flame, Layers, Wheat, Snowflake, Sparkles, Box } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { CategoryIcon } from './CategoryIcon';
 
 export interface CategoryCardProps {
   category: CategoryInfo;
@@ -9,24 +10,6 @@ export interface CategoryCardProps {
 }
 
 export const CategoryCard: React.FC<CategoryCardProps> = ({ category, className = '' }) => {
-  const getIcon = (slug: string) => {
-    switch (slug) {
-      case 'cooking-ranges':
-        return <Flame className="w-8 h-8 text-[#174A83]" />;
-      case 'combi-ovens':
-        return <Layers className="w-8 h-8 text-[#174A83]" />;
-      case 'bakery-machinery':
-        return <Wheat className="w-8 h-8 text-[#174A83]" />;
-      case 'commercial-refrigeration':
-        return <Snowflake className="w-8 h-8 text-[#174A83]" />;
-      case 'stainless-steel-prep':
-      case 'warewashing-sanitation':
-        return <Sparkles className="w-8 h-8 text-[#174A83]" />;
-      default:
-        return <Box className="w-8 h-8 text-[#174A83]" />;
-    }
-  };
-
   return (
     <Link
       href={`/products?category=${category.slug}`}
@@ -37,7 +20,7 @@ export const CategoryCard: React.FC<CategoryCardProps> = ({ category, className 
 
       <div>
         <div className="w-14 h-14 rounded-xl bg-[#F3F6FA] group-hover:bg-[#174A83]/10 flex items-center justify-center mb-4 transition-colors">
-          {getIcon(category.slug)}
+          <CategoryIcon category={category.slug} />
         </div>
 
         <h3 className="font-heading font-bold text-lg text-[#102B46] group-hover:text-[#174A83] transition-colors mb-2">

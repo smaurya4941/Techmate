@@ -6,53 +6,22 @@ import Link from 'next/link';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { FadeIn, StaggerGroup, StaggerItem } from '@/components/animations/MotionWrapper';
 import { motion } from 'framer-motion';
+import { PROJECTS_DATA } from '@/lib/projects-data';
 
 export function CaseStudiesCarousel() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollIndex, setScrollIndex] = useState(0);
 
-  const caseStudies = [
-    {
-      id: 1,
-      badge: '5-STAR HOSPITALITY',
-      title: 'Turnkey Banquet & All-Day Dining Suite for Radisson Blu',
-      description:
-        'Engineered 8-burner AISI 304 cooking suites, high-capacity rotary ovens, and custom coved stainless worktables for 1,200-cover daily banquet throughput.',
-      image: '/images/case-hotel-kitchen.jpg',
-      category: 'Hospitality',
-      stats: '1,200 Covers/Day',
-    },
-    {
-      id: 2,
-      badge: 'CLOUD KITCHEN NETWORK',
-      title: 'High-Velocity Multi-Brand Commissary for Rebel Foods',
-      description:
-        'Rapid-assembly stainless prep line, induction wok stations, and overhead grease extraction hoods powering 18 virtual delivery brands simultaneously.',
-      image: '/images/case-cloud-kitchen.jpg',
-      category: 'Cloud Kitchen',
-      stats: '18 Brands / Hub',
-    },
-    {
-      id: 3,
-      badge: 'INDUSTRIAL BAKERY',
-      title: 'Automated 120-Tray Rotary Oven Line for Monginis Franchise',
-      description:
-        'Heavy-duty spiral dough kneaders, automated dividers, and diesel/electric rotary rack ovens delivering 4,500 artisan loaves every morning.',
-      image: '/images/case-bakery-plant.jpg',
-      category: 'Bakery Plant',
-      stats: '4,500 Loaves/Day',
-    },
-    {
-      id: 4,
-      badge: 'HEALTHCARE CATERING',
-      title: 'Sterile Central Dietary Facility for Apollo Hospitals',
-      description:
-        'HACCP-certified combi-steamer suites, sub-zero walk-in blast chillers, and automated conveyor tray-line ensuring 100% bacterial safety compliance.',
-      image: '/images/case-hospital-kitchen.jpg',
-      category: 'Healthcare',
-      stats: '100% HACCP Sterile',
-    },
-  ];
+  const caseStudies = PROJECTS_DATA.map((project, index) => ({
+    id: index + 1,
+    slug: project.slug,
+    badge: project.badge,
+    title: project.title,
+    description: project.summary,
+    image: project.image,
+    category: project.category,
+    stats: project.metrics.map((m) => `${m.value} ${m.label}`).join(' • '),
+  }));
 
   const handleScroll = (direction: 'left' | 'right') => {
     if (!scrollRef.current) return;
@@ -91,6 +60,14 @@ export function CaseStudiesCarousel() {
                 Working with Techmate turnkey engineering gives you complete peace of mind in knowing that your kitchen operations are safe, compliant, and optimized for high volume.
               </p>
 
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 text-xs font-bold text-white hover:text-blue-300 transition-colors shrink-0"
+              >
+                <span>View all projects</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+
               {/* Circular Carousel Controls */}
               <div className="flex items-center gap-3 shrink-0">
                 <motion.button
@@ -125,7 +102,7 @@ export function CaseStudiesCarousel() {
             {caseStudies.map((item) => (
               <StaggerItem key={item.id}>
                 <Link
-                  href="/industries"
+                  href={`/projects/${item.slug}`}
                   className="h-[480px] sm:h-[520px] rounded-3xl overflow-hidden relative group cursor-pointer border border-white/10 shadow-2xl block bg-[#11141c]"
                 >
                   {/* Photographic Background Image */}
@@ -165,7 +142,7 @@ export function CaseStudiesCarousel() {
 
                     <div className="pt-3 flex items-center justify-between text-xs font-bold text-lime-400 sm:text-blue-300 group-hover:text-white transition-colors transform translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100 ease-out">
                       <span className="inline-flex items-center gap-1.5">
-                        <span>Explore Project Specs</span>
+                        <span>View Project</span>
                         <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                       </span>
                       <span className="text-[11px] font-mono text-gray-400 font-normal">

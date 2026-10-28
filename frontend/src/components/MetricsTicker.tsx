@@ -7,9 +7,9 @@ import { motion } from 'framer-motion';
 
 export function MetricsTicker() {
   const ribbons = [
-    { label: 'FINANCIAL & COMMERCIAL COOKING', href: '/products?category=cooking-ranges', highlight: true },
-    { label: 'STRATEGIC BAKERY MACHINERY', href: '/products?category=bakery-machinery', highlight: false },
-    { label: 'REFRIGERATION & TURNKEY PLANNING', href: '/products?category=commercial-refrigeration', highlight: false },
+    { label: 'FINANCIAL & COMMERCIAL COOKING', href: '/products?category=cooking', highlight: true },
+    { label: 'STRATEGIC BAKERY MACHINERY', href: '/products?category=bakery-baking', highlight: false },
+    { label: 'REFRIGERATION & TURNKEY PLANNING', href: '/products?category=refrigeration', highlight: false },
   ];
 
   const statistics = [

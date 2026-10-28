@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useMemo, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import React, { useState, useMemo, Suspense } from 'react';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs';
@@ -10,39 +10,84 @@ import { ProductGrid } from '@/components/products/ProductGrid';
 import { ProductFilterSidebar } from '@/components/products/ProductFilterSidebar';
 import { SearchInput } from '@/components/ui/Input';
 import { Pagination } from '@/components/ui/Pagination';
-import { SAMPLE_PRODUCTS, CATEGORIES_DATA } from '@/lib/products-data';
+import {
+  SAMPLE_PRODUCTS,
+  CATEGORIES_DATA,
+  getSubCategory,
+  getSubCategoriesOf,
+} from '@/lib/products-data';
 import { Filter, SlidersHorizontal, ArrowUpDown } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
 function ProductListingContent() {
+  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get('category');
+  const subCategoryParam = searchParams.get('subcategory');
   const searchParam = searchParams.get('search');
 
-  // Filter & Search states
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  // Category and sub-category live in the URL so links from the menu, footer and
+  // brand pages are shareable and the browser back button works. Unknown values
+  // fall back to "all" instead of rendering an empty catalogue.
+  const selectedCategory =
+    categoryParam && CATEGORIES_DATA.some((c) => c.slug === categoryParam) ? categoryParam : 'all';
+  const selectedSubCategory =
+    selectedCategory !== 'all' &&
+    subCategoryParam &&
+    getSubCategoriesOf(selectedCategory).some((s) => s.slug === subCategoryParam)
+      ? subCategoryParam
+      : 'all';
+
+  // Local filter states
   const [selectedPower, setSelectedPower] = useState<string>('all');
-  const [searchQuery, setSearchQuery] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>(searchParam ?? '');
   const [sortBy, setSortBy] = useState<'name' | 'model'>('name');
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState<boolean>(false);
 
   const ITEMS_PER_PAGE = 6;
 
-  // Initialize from URL params
-  useEffect(() => {
-    if (categoryParam) {
-      setSelectedCategory(categoryParam);
-    }
+  // Sync search from the URL (header search box) and reset to page 1 whenever the
+  // URL-driven filters change. State is adjusted during render rather than in an effect.
+  const [prevSearchParam, setPrevSearchParam] = useState(searchParam);
+  if (searchParam !== prevSearchParam) {
+    setPrevSearchParam(searchParam);
     if (searchParam) {
       setSearchQuery(searchParam);
+      setCurrentPage(1);
     }
-  }, [categoryParam, searchParam]);
-
-  // Reset page when filters change
-  const handleCategoryChange = (cat: string) => {
-    setSelectedCategory(cat);
+  }
+  const filterKey = `${selectedCategory}/${selectedSubCategory}`;
+  const [prevFilterKey, setPrevFilterKey] = useState(filterKey);
+  if (filterKey !== prevFilterKey) {
+    setPrevFilterKey(filterKey);
     setCurrentPage(1);
+  }
+
+  const updateUrl = (category: string, subCategory: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+    if (category === 'all') {
+      params.delete('category');
+    } else {
+      params.set('category', category);
+    }
+    if (category === 'all' || subCategory === 'all') {
+      params.delete('subcategory');
+    } else {
+      params.set('subcategory', subCategory);
+    }
+    params.delete('search');
+    const qs = params.toString();
+    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+  };
+
+  const handleCategoryChange = (cat: string) => {
+    updateUrl(cat, 'all');
+  };
+
+  const handleSubCategoryChange = (sub: string) => {
+    updateUrl(selectedCategory, sub);
   };
 
   const handlePowerChange = (power: string) => {
@@ -51,10 +96,10 @@ function ProductListingContent() {
   };
 
   const handleResetFilters = () => {
-    setSelectedCategory('all');
     setSelectedPower('all');
     setSearchQuery('');
     setCurrentPage(1);
+    router.replace(pathname, { scroll: false });
   };
 
   // Filter calculations
@@ -62,6 +107,11 @@ function ProductListingContent() {
     return SAMPLE_PRODUCTS.filter((item) => {
       // Category filter
       if (selectedCategory !== 'all' && item.category !== selectedCategory) {
+        return false;
+      }
+
+      // Sub-category filter
+      if (selectedSubCategory !== 'all' && item.subCategory !== selectedSubCategory) {
         return false;
       }
 
@@ -90,7 +140,7 @@ function ProductListingContent() {
       }
       return a.name.localeCompare(b.name);
     });
-  }, [selectedCategory, selectedPower, searchQuery, sortBy]);
+  }, [selectedCategory, selectedSubCategory, selectedPower, searchQuery, sortBy]);
 
   // Pagination slice
   const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
@@ -101,10 +151,13 @@ function ProductListingContent() {
 
   const activeFilterCount =
     (selectedCategory !== 'all' ? 1 : 0) +
+    (selectedSubCategory !== 'all' ? 1 : 0) +
     (selectedPower !== 'all' ? 1 : 0) +
     (searchQuery.trim() ? 1 : 0);
 
   const currentCategoryObj = CATEGORIES_DATA.find((c) => c.slug === selectedCategory);
+  const currentSubCategoryObj =
+    selectedSubCategory !== 'all' ? getSubCategory(selectedSubCategory) : undefined;
 
   return (
     <>
@@ -116,8 +169,16 @@ function ProductListingContent() {
           <div className="mb-6">
             <Breadcrumbs
               items={[
-                { label: 'Products Catalogue', href: '/products' },
-                ...(currentCategoryObj ? [{ label: currentCategoryObj.name }] : []),
+                { label: 'Products', href: '/products' },
+                ...(currentCategoryObj
+                  ? [
+                      {
+                        label: currentCategoryObj.name,
+                        href: `/products?category=${currentCategoryObj.slug}`,
+                      },
+                    ]
+                  : []),
+                ...(currentSubCategoryObj ? [{ label: currentSubCategoryObj.name }] : []),
               ]}
             />
           </div>
@@ -129,7 +190,11 @@ function ProductListingContent() {
                 INDUSTRIAL SPECIFICATION CATALOGUE
               </span>
               <h1 className="text-2xl sm:text-4xl font-extrabold text-[#102B46] font-heading">
-                {currentCategoryObj ? currentCategoryObj.name : 'Commercial Equipment & Food-Service Machinery'}
+                {currentSubCategoryObj
+                  ? currentSubCategoryObj.name
+                  : currentCategoryObj
+                    ? currentCategoryObj.name
+                    : 'Commercial Equipment & Food-Service Machinery'}
               </h1>
               <p className="mt-3 text-sm text-[#344054] leading-relaxed">
                 {currentCategoryObj
@@ -147,6 +212,8 @@ function ProductListingContent() {
                 <ProductFilterSidebar
                   selectedCategory={selectedCategory}
                   onSelectCategory={handleCategoryChange}
+                  selectedSubCategory={selectedSubCategory}
+                  onSelectSubCategory={handleSubCategoryChange}
                   selectedPower={selectedPower}
                   onSelectPower={handlePowerChange}
                   onReset={handleResetFilters}
@@ -206,7 +273,8 @@ function ProductListingContent() {
               <div className="flex items-center justify-between text-xs text-gray-500 px-1">
                 <span>
                   Showing <strong className="text-[#102B46]">{filteredProducts.length}</strong> equipment models
-                  {selectedCategory !== 'all' && ` in ${currentCategoryObj?.name || selectedCategory}`}
+                  {selectedCategory !== 'all' &&
+                    ` in ${currentSubCategoryObj?.name || currentCategoryObj?.name || selectedCategory}`}
                 </span>
                 <span className="text-[11px] font-mono text-gray-400">
                   Direct Factory Supply • ISO 9001:2015
@@ -247,8 +315,10 @@ function ProductListingContent() {
           <div className="relative ml-auto w-full max-w-xs h-full bg-white shadow-2xl p-6 overflow-y-auto">
             <ProductFilterSidebar
               selectedCategory={selectedCategory}
-              onSelectCategory={(cat) => {
-                handleCategoryChange(cat);
+              onSelectCategory={handleCategoryChange}
+              selectedSubCategory={selectedSubCategory}
+              onSelectSubCategory={(sub) => {
+                handleSubCategoryChange(sub);
                 setMobileFiltersOpen(false);
               }}
               selectedPower={selectedPower}

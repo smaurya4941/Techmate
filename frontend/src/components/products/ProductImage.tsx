@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { Flame, Layers, Wheat, Snowflake, Sparkles, Box } from 'lucide-react';
 import { EquipmentCategory } from '@/types/product';
+import { CategoryIcon } from './CategoryIcon';
 
 export interface ProductImageProps {
   src?: string;
@@ -24,24 +24,6 @@ export const ProductImage: React.FC<ProductImageProps> = ({
 }) => {
   const [imageError, setImageError] = useState(false);
 
-  const getCategoryIcon = (cat?: EquipmentCategory) => {
-    switch (cat) {
-      case 'cooking-ranges':
-        return <Flame className="w-12 h-12 text-[#174A83]" />;
-      case 'combi-ovens':
-        return <Layers className="w-12 h-12 text-[#174A83]" />;
-      case 'bakery-machinery':
-        return <Wheat className="w-12 h-12 text-[#174A83]" />;
-      case 'commercial-refrigeration':
-        return <Snowflake className="w-12 h-12 text-[#174A83]" />;
-      case 'stainless-steel-prep':
-      case 'warewashing-sanitation':
-        return <Sparkles className="w-12 h-12 text-[#174A83]" />;
-      default:
-        return <Box className="w-12 h-12 text-[#174A83]" />;
-    }
-  };
-
   if (!src || imageError) {
     return (
       <div
@@ -59,7 +41,7 @@ export const ProductImage: React.FC<ProductImageProps> = ({
         />
 
         <div className="relative z-10 w-20 h-20 rounded-2xl bg-white shadow-md border border-gray-200/80 flex items-center justify-center mb-3">
-          {getCategoryIcon(category)}
+          <CategoryIcon category={category} className="w-12 h-12 text-[#174A83]" />
         </div>
 
         <span className="relative z-10 inline-block px-2.5 py-0.5 rounded bg-[#102B46] text-white text-[10px] font-mono font-bold tracking-wider uppercase mb-1">
